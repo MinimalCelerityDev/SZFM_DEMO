@@ -3,7 +3,7 @@ import SecondPage from "../app/components/SecondPage/SecondPage";
 import Pricing from "../app/components/Pricing/Pricing";
 import Programs from "../app/components/ProgramsPage/Programs";
 import Footer from "./components/Footer/Footer";
-import ContactPage from "./components/Contact/Contact";
+import ContactPage from "../app/components/Contact/Contact";
 
 export default function Home() {
   return (
