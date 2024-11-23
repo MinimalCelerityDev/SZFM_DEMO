@@ -1,4 +1,3 @@
-// src/app/components/ContactPage.tsx
 import React from 'react';
 import bk from "../Contact/contact.png";
 import { FaInstagram, FaFacebookF, FaTwitter, FaBehance, FaYoutube, FaLinkedin } from 'react-icons/fa';
