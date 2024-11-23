@@ -224,17 +224,17 @@ const Dashboard = () => {
               <div className="absolute left-0 top-full mt-2 w-48 bg-gray-900 text-white p-3 rounded shadow-xl">
                 <ul>
                   <li>
-                    <a href="/contact-1" className="block hover:text-indigo-400 transition">
+                    <a href="/jogi-nyilatkozat" className="block hover:text-indigo-400 transition">
                       Jogi nyilatkozat
                     </a>
                   </li>
                   <li>
-                    <a href="/contact-2" className="block hover:text-indigo-400 transition">
+                    <a href="/suti-politika" className="block hover:text-indigo-400 transition">
                       Süti politika
                     </a>
                   </li>
                   <li>
-                    <a href="/contact-3" className="block hover:text-indigo-400 transition">
+                    <a href="/adatvedelem"className="block hover:text-indigo-400 transition">
                       Adatvédelem
                     </a>
                   </li>
