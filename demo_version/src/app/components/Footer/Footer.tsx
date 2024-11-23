@@ -41,17 +41,17 @@ const Footer: React.FC = () => {
       {/*
       
       Alsó rész a gombokkal
-      
+
       */}
 
 
       <nav className="text-lg border-t border-white/20 pt-6 mt-6">
-        <a href="#" className="hover:text-gray-300 px-3" title="Home">Home</a>
-        <a href="#" className="hover:text-gray-300 px-3" title="About Us">About</a>
-        <a href="#" className="hover:text-gray-300 px-3" title="Our Works">Works</a>
-        <a href="#" className="hover:text-gray-300 px-3" title="Client Reviews">Reviews</a>
-        <a href="#" className="hover:text-gray-300 px-3" title="Our Blogs">Blogs</a>
-        <a href="#" className="hover:text-gray-300 px-3" title="Contact Us">Contact</a>
+        <a href="#" className="hover:text-gray-300 px-3" title="Home">FŐOLDAL</a>
+        <a href="#" className="hover:text-gray-300 px-3" title="About Us">FEATURES</a>
+        <a href="#" className="hover:text-gray-300 px-3" title="Our Works">PRICING</a>
+        <a href="#" className="hover:text-gray-300 px-3" title="Client Reviews">PROGRAMS</a>
+        <a href="/adatkezeles_es_sutik" className="hover:text-gray-300 px-3" title="Contact Us">ADATKEZELÉS ÉS SÜTIK</a>
+        <a href="#" className="hover:text-gray-300 px-3" title="Contact Us">CONTACT</a>
       </nav>
     </footer>
   );
