@@ -1,11 +1,60 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import dasi_kep from "../dashboard/dasi_kep.png";
-import adatim_2 from "../dashboard/adataim_2.png";
 import boritos from "../dashboard/boritos.png";
+import EtrendekPage from "../etrendek/page";
+import ArakPage from "../arak/page";
+import SportokPage from "../sportok/page";
+import ContactPage from "../contact/page";
 
 const Dashboard = () => {
+
+  const [showEtrendek, setShowEtrendek] = useState(false);
+  const [showArak, setShowArak] = useState(false);
+  const [showSportok, setShowSportok] = useState(false);
+  const [showContact, setShowContact] = useState(false);
+
+  const scrollToEtrendekPage = () => {
+    setShowEtrendek(true); // Az Étrendek oldal megjelenítése
+    setTimeout(() => {
+      const etrendPage = document.getElementById("EtrendPage");
+      if (etrendPage) {
+        etrendPage.scrollIntoView({ behavior: "smooth" }); // Simán görgess oda
+      }
+    }, 100); // Várunk, hogy az elem betöltődjön
+  };
+
+  const scrollToArakPage = () => {
+    setShowArak(true); // Az Étrendek oldal megjelenítése
+    setTimeout(() => {
+      const arPage = document.getElementById("ArakPage");
+      if (arPage) {
+        arPage.scrollIntoView({ behavior: "smooth" }); // Simán görgess oda
+      }
+    }, 100); // Várunk, hogy az elem betöltődjön
+  };
+
+  const scrollToSportokPage = () => {
+    setShowSportok(true); // Az Étrendek oldal megjelenítése
+    setTimeout(() => {
+      const sportPage = document.getElementById("SportokPage");
+      if (sportPage) {
+        sportPage.scrollIntoView({ behavior: "smooth" }); // Simán görgess oda
+      }
+    }, 100); // Várunk, hogy az elem betöltődjön
+  };
+
+  const scrollToContactPage = () => {
+    setShowContact(true); // Az Étrendek oldal megjelenítése
+    setTimeout(() => {
+      const contactPage = document.getElementById("ContactPage");
+      if (contactPage) {
+        contactPage.scrollIntoView({ behavior: "smooth" }); // Simán görgess oda
+      }
+    }, 100); // Várunk, hogy az elem betöltődjön
+  };
+
+
   const [user, setUser] = useState<{ userId: string; firstName: string; lastName: string; email: string } | null>(null);
   const [userData, setUserData] = useState<any | null>(null);
   const [form, setForm] = useState({
@@ -122,6 +171,7 @@ const Dashboard = () => {
 
   return (
     <div className="flex flex-col">
+
     <div
       className="min-h-screen text-white"
       style={{
@@ -134,116 +184,135 @@ const Dashboard = () => {
         <div className="text-3xl font-bold uppercase tracking-wide text-red-800">
            FFLIFE 
         </div>
-        <ul id="menu-container" className="flex gap-8 text-xl font-semibold">
-          <li
-            className="relative group cursor-pointer font-bold text-black hover:text-red-800 transition duration-300"
-            onClick={() => toggleMenu("features")}
-          >
-            ÉTRENDEK
-            {showMenu.features && (
-              <div className="absolute left-0 top-full mt-2 w-40 bg-gray-900 text-white p-4 rounded shadow-xl">
-                <ul>
-                  <li>
-                    <a href="/features-1" className="block hover:text-indigo-400 transition">
-                      Étrendek 2
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/features-2" className="block hover:text-indigo-400 transition">
-                    Étrendek 2
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/features-3" className="block hover:text-indigo-400 transition">
-                    Étrendek 3
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            )}
-          </li>
-          <li
-            className="relative group cursor-pointer font-bold text-black hover:text-red-800 transition duration-300"
-            onClick={() => toggleMenu("pricing")}
-          >
-            ÁRAK
-            {showMenu.pricing && (
-              <div className="absolute left-0 top-full mt-2 w-48 bg-gray-900 text-white p-3 rounded shadow-xl">
-                <ul>
-                  <li>
-                    <a href="/pricing-1" className="block hover:text-indigo-400 transition">
-                      A csomag
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/pricing-2" className="block hover:text-indigo-400 transition">
-                      B csomag
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/pricing-3" className="block hover:text-indigo-400 transition">
-                      C csomag
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            )}
-          </li>
-          <li
-            className="relative group cursor-pointer font-bold text-black hover:text-red-800 transition duration-300"
-            onClick={() => toggleMenu("resources")}
-          >
-            SPORTOK
-            {showMenu.resources && (
-              <div className="absolute left-0 top-full mt-2 w-48 bg-gray-900 text-white p-3 rounded shadow-xl">
-                <ul>
-                  <li>
-                    <a href="/resources-1" className="block hover:text-indigo-400 transition">
-                      Edzőterem 
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/resources-2" className="block hover:text-indigo-400 transition">
-                      Futás
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/resources-3" className="block hover:text-indigo-400 transition">
-                      Mozgás
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            )}
-          </li>
-          <li
-            className="relative group cursor-pointer font-bold text-black hover:text-red-800 transition duration-300"
-            onClick={() => toggleMenu("contact")}
-          >
-            KONTAKT
-            {showMenu.contact && (
-              <div className="absolute left-0 top-full mt-2 w-48 bg-gray-900 text-white p-3 rounded shadow-xl">
-                <ul>
-                  <li>
-                    <a href="/jogi-nyilatkozat" className="block hover:text-indigo-400 transition">
-                      Jogi nyilatkozat
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/suti-politika" className="block hover:text-indigo-400 transition">
-                      Süti politika
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/adatvedelem"className="block hover:text-indigo-400 transition">
-                      Adatvédelem
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            )}
-          </li>
-        </ul>
+
+         <ul id="menu-container" className="flex gap-8 text-xl font-semibold">
+  <li
+    className="relative group cursor-pointer font-bold text-black hover:text-red-800 transition duration-300"
+    onMouseEnter={() => setShowMenu({ ...showMenu, features: true })}
+    onMouseLeave={() => setShowMenu({ ...showMenu, features: false })}
+    onClick={scrollToEtrendekPage}
+    
+
+  >
+    ÉTRENDEK
+    <div
+      className={`absolute left-0 top-full mt-2 w-40 bg-gray-900 text-white p-4 rounded shadow-xl transition-opacity ${
+        showMenu.features ? "opacity-100 visible" : "opacity-0 invisible"
+      }`}
+    >
+      <ul>
+        <li>
+          <a href="/features-1" className="block hover:text-indigo-400 transition">
+            Étrendek 1
+          </a>
+        </li>
+        <li>
+          <a href="/features-2" className="block hover:text-indigo-400 transition">
+            Étrendek 2
+          </a>
+        </li>
+        <li>
+          <a href="/features-3" className="block hover:text-indigo-400 transition">
+            Étrendek 3
+          </a>
+        </li>
+      </ul>
+    </div>
+  </li>
+  <li
+    className="relative group cursor-pointer font-bold text-black hover:text-red-800 transition duration-300"
+    onMouseEnter={() => setShowMenu({ ...showMenu, pricing: true })}
+    onMouseLeave={() => setShowMenu({ ...showMenu, pricing: false })}
+    onClick={scrollToArakPage}
+  >
+    ÁRAK
+    <div
+      className={`absolute left-0 top-full mt-2 w-48 bg-gray-900 text-white p-3 rounded shadow-xl transition-opacity ${
+        showMenu.pricing ? "opacity-100 visible" : "opacity-0 invisible"
+      }`}
+    >
+      <ul>
+        <li>
+          <a href="/pricing-1" className="block hover:text-indigo-400 transition">
+            A csomag
+          </a>
+        </li>
+        <li>
+          <a href="/pricing-2" className="block hover:text-indigo-400 transition">
+            B csomag
+          </a>
+        </li>
+        <li>
+          <a href="/pricing-3" className="block hover:text-indigo-400 transition">
+            C csomag
+          </a>
+        </li>
+      </ul>
+    </div>
+  </li>
+  <li
+    className="relative group cursor-pointer font-bold text-black hover:text-red-800 transition duration-300"
+    onMouseEnter={() => setShowMenu({ ...showMenu, resources: true })}
+    onMouseLeave={() => setShowMenu({ ...showMenu, resources: false })}
+    onClick={scrollToSportokPage}
+  >
+    SPORTOK
+    <div
+      className={`absolute left-0 top-full mt-2 w-48 bg-gray-900 text-white p-3 rounded shadow-xl transition-opacity ${
+        showMenu.resources ? "opacity-100 visible" : "opacity-0 invisible"
+      }`}
+    >
+      <ul>
+        <li>
+          <a href="/resources-1" className="block hover:text-indigo-400 transition">
+            Edzőterem 
+          </a>
+        </li>
+        <li>
+          <a href="/resources-2" className="block hover:text-indigo-400 transition">
+            Futás
+          </a>
+        </li>
+        <li>
+          <a href="/resources-3" className="block hover:text-indigo-400 transition">
+            Mozgás
+          </a>
+        </li>
+      </ul>
+    </div>
+  </li>
+  <li
+    className="relative group cursor-pointer font-bold text-black hover:text-red-800 transition duration-300"
+    onMouseEnter={() => setShowMenu({ ...showMenu, contact: true })}
+    onMouseLeave={() => setShowMenu({ ...showMenu, contact: false })}
+    onClick={scrollToContactPage}
+  >
+    KONTAKT
+    <div
+      className={`absolute left-0 top-full mt-2 w-48 bg-gray-900 text-white p-3 rounded shadow-xl transition-opacity ${
+        showMenu.contact ? "opacity-100 visible" : "opacity-0 invisible"
+      }`}
+    >
+      <ul>
+        <li>
+          <a href="/jogi-nyilatkozat" className="block hover:text-indigo-400 transition">
+            Jogi nyilatkozat
+          </a>
+        </li>
+        <li>
+          <a href="/suti-politika" className="block hover:text-indigo-400 transition">
+            Süti politika
+          </a>
+        </li>
+        <li>
+          <a href="/adatvedelem" className="block hover:text-indigo-400 transition">
+            Adatvédelem
+          </a>
+        </li>
+      </ul>
+    </div>
+  </li>
+</ul>
         <div
           className="bg-gradient-to-r from-brown-900 via-indigo-200 to-red-800 px-6 py-3 rounded-full font-extrabold shadow-lg flex items-center space-x-2 cursor-pointer"
           onClick={() => setShowDetails({ userDetails: !showDetails.userDetails, personalData: false })}
@@ -382,6 +451,25 @@ const Dashboard = () => {
         </details>
       </main>
     </div>
+
+
+    <div id="EtrendekSection" className="min-h-screen">
+          <EtrendekPage />
+        </div>
+
+        <div id="ArakSection" className="min-h-screen">
+          <ArakPage />
+        </div>
+
+        <div id="SportokSection" className="min-h-screen">
+          <SportokPage />
+        </div>
+
+        <div id="ContactSection" className="min-h-screen">
+          <ContactPage />
+        </div>
+
+
     </div>
   );
 };
