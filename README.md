@@ -9,3 +9,5 @@ működik
 kell sudo -chown
 
 illetve npm install react-icons
+
+2024.11.24 modosítások, most
