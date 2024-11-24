@@ -121,6 +121,7 @@ const Dashboard = () => {
   }
 
   return (
+    <div className="flex flex-col">
     <div
       className="min-h-screen text-white"
       style={{
@@ -380,6 +381,7 @@ const Dashboard = () => {
           )}
         </details>
       </main>
+    </div>
     </div>
   );
 };
