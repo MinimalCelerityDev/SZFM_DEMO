@@ -8,7 +8,7 @@ const ArakPage = () => {
       id="ArakPage"
       className="min-h-screen flex items-center justify-center text-white"
       style={{
-        backgroundImage: `url('/arak_kep.jpg')`,
+        backgroundImage: `url('/arak_oldal.jpg')`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}

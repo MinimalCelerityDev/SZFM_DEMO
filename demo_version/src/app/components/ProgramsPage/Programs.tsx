@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState } from 'react';
-import bk from "../ProgramsPage/Programs.png";
+import bk from "../ProgramsPage/FAQ_kep.jpg";
 
 const ProgramsPage = () => {
     const [activeIndex, setActiveIndex] = useState<number | null>(null);

@@ -48,10 +48,10 @@ const Footer: React.FC = () => {
       <nav className="text-lg border-t border-white/20 pt-6 mt-6">
         <a href="#" className="hover:text-gray-300 px-3" title="Home">FŐOLDAL</a>
         <a href="#" className="hover:text-gray-300 px-3" title="About Us">FEATURES</a>
-        <a href="#" className="hover:text-gray-300 px-3" title="Our Works">PRICING</a>
+        <a href="#" className="hover:text-gray-300 px-3" title="Our Works">EDZÉSTERVEK</a>
         <a href="#" className="hover:text-gray-300 px-3" title="Client Reviews">PROGRAMS</a>
         <a href="/adatkezeles_es_sutik" className="hover:text-gray-300 px-3" title="Contact Us">ADATKEZELÉS ÉS SÜTIK</a>
-        <a href="#" className="hover:text-gray-300 px-3" title="Contact Us">CONTACT</a>
+        <a href="#" className="hover:text-gray-300 px-3" title="Contact Us">KAPCSOLAT</a>
       </nav>
     </footer>
   );
