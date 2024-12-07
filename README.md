@@ -13,3 +13,5 @@ illetve npm install react-icons
 2024.11.24 modosítások, most
 
 szeretem jézust
+
+npm install jspdf html2canvas --force
