@@ -44,12 +44,12 @@ const ProgramsPage = () => {
                 backgroundRepeat: 'no-repeat'
             }}
         >
-            <h1 className="text-4xl text-red-900 font-bold mb-4">Gyakran feltett kérdések ! </h1>
+            <h1 className="text-4xl text-white-400 font-bold mb-4">Gyakran feltett kérdések !</h1>
             <div className="w-full max-w-4xl">
                 {faqs.map((faq, index) => (
                     <div key={index} className="mb-2">
                         <button
-                            className={`w-full text-left font-semibold text-3xl py-2 px-4 rounded-lg ${activeIndex === index ? 'bg-red' : 'bg-white-500'}`}
+                            className={`w-full text-left font-semibold text-3xl py-2 px-4 rounded-lg ${activeIndex === index ? 'text-gray-800 bg-white-500' : 'text-white-600 bg-red'}`}
                             onClick={() => handleAccordion(index)}
                         >
                             {faq.question}

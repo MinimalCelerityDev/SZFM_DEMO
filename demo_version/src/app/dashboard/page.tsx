@@ -187,7 +187,7 @@ const Dashboard = () => {
 
          <ul id="menu-container" className="flex gap-8 text-xl font-semibold">
   <li
-    className="relative group cursor-pointer font-bold text-black hover:text-red-800 transition duration-300"
+    className="relative group cursor-pointer font-bold text-white hover:text-red-800 transition duration-300"
     onMouseEnter={() => setShowMenu({ ...showMenu, features: true })}
     onMouseLeave={() => setShowMenu({ ...showMenu, features: false })}
     onClick={scrollToEtrendekPage}
@@ -220,7 +220,7 @@ const Dashboard = () => {
     </div>
   </li>
   <li
-    className="relative group cursor-pointer font-bold text-black hover:text-red-800 transition duration-300"
+    className="relative group cursor-pointer font-bold text-white hover:text-red-800 transition duration-300"
     onMouseEnter={() => setShowMenu({ ...showMenu, pricing: true })}
     onMouseLeave={() => setShowMenu({ ...showMenu, pricing: false })}
     onClick={scrollToArakPage}
@@ -251,7 +251,7 @@ const Dashboard = () => {
     </div>
   </li>
   <li
-    className="relative group cursor-pointer font-bold text-black hover:text-red-800 transition duration-300"
+    className="relative group cursor-pointer font-bold text-white hover:text-red-800 transition duration-300"
     onMouseEnter={() => setShowMenu({ ...showMenu, resources: true })}
     onMouseLeave={() => setShowMenu({ ...showMenu, resources: false })}
     onClick={scrollToSportokPage}
@@ -282,7 +282,7 @@ const Dashboard = () => {
     </div>
   </li>
   <li
-    className="relative group cursor-pointer font-bold text-black hover:text-red-800 transition duration-300"
+    className="relative group cursor-pointer font-bold text-white hover:text-red-800 transition duration-300"
     onMouseEnter={() => setShowMenu({ ...showMenu, contact: true })}
     onMouseLeave={() => setShowMenu({ ...showMenu, contact: false })}
     onClick={scrollToContactPage}
