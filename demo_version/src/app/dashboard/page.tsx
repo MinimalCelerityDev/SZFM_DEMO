@@ -6,6 +6,7 @@ import EtrendekPage from "../etrendek/page";
 import ArakPage from "../arak/page";
 import SportokPage from "../sportok/page";
 import ContactPage from "../contact/page";
+import FooterPage from "../footer/page";
 
 const Dashboard = () => {
 
@@ -468,6 +469,7 @@ const Dashboard = () => {
         <div id="ContactSection" className="min-h-screen">
           <ContactPage />
         </div>
+
 
 
     </div>
