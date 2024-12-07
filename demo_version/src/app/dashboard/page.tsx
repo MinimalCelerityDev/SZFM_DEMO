@@ -181,6 +181,20 @@ const Dashboard = () => {
         backgroundPosition: "center",
       }}
     >
+
+      <header className="w-full flex justify-between items-center px-6 pt-12 py-4 fixed top-0 z-50 bg-opacity-60 text-white">
+        <div className="text-3xl font-bold uppercase tracking-wide text-red-800">
+           FFLIFE 
+        </div>
+
+         <ul id="menu-container" className="flex gap-8 text-xl font-semibold">
+  <li
+    className="relative group cursor-pointer font-bold text-white hover:text-red-800 transition duration-300"
+    onMouseEnter={() => setShowMenu({ ...showMenu, features: true })}
+    onMouseLeave={() => setShowMenu({ ...showMenu, features: false })}
+    onClick={scrollToEtrendekPage}
+    
+
       <header className="w-full flex justify-between items-center px-6 pt-12 py-4 fixed top-0 z-50 bg-opacity-80 text-white">
   <div className="text-3xl ml-10 font-bold uppercase tracking-wide text-red-800">
     FFLIFE
@@ -197,6 +211,99 @@ const Dashboard = () => {
       onMouseLeave={() => setShowMenu({ ...showMenu, features: false })}
       onClick={scrollToEtrendekPage}
     >
+      <ul>
+        <li>
+          <a href="/features-1" className="block hover:text-indigo-400 transition">
+            Étrendek 1
+          </a>
+        </li>
+        <li>
+          <a href="/features-2" className="block hover:text-indigo-400 transition">
+            Étrendek 2
+          </a>
+        </li>
+        <li>
+          <a href="/features-3" className="block hover:text-indigo-400 transition">
+            Étrendek 3
+          </a>
+        </li>
+      </ul>
+    </div>
+  </li>
+  <li
+    className="relative group cursor-pointer font-bold text-white hover:text-red-800 transition duration-300"
+    onMouseEnter={() => setShowMenu({ ...showMenu, pricing: true })}
+    onMouseLeave={() => setShowMenu({ ...showMenu, pricing: false })}
+    onClick={scrollToArakPage}
+  >
+    ÁRAK
+    <div
+      className={`absolute left-0 top-full mt-2 w-48 bg-gray-900 text-white p-3 rounded shadow-xl transition-opacity ${
+        showMenu.pricing ? "opacity-100 visible" : "opacity-0 invisible"
+      }`}
+    >
+      <ul>
+        <li>
+          <a href="/pricing-1" className="block hover:text-indigo-400 transition">
+            A csomag
+          </a>
+        </li>
+        <li>
+          <a href="/pricing-2" className="block hover:text-indigo-400 transition">
+            B csomag
+          </a>
+        </li>
+        <li>
+          <a href="/pricing-3" className="block hover:text-indigo-400 transition">
+            C csomag
+          </a>
+        </li>
+      </ul>
+    </div>
+  </li>
+  <li
+    className="relative group cursor-pointer font-bold text-white hover:text-red-800 transition duration-300"
+    onMouseEnter={() => setShowMenu({ ...showMenu, resources: true })}
+    onMouseLeave={() => setShowMenu({ ...showMenu, resources: false })}
+    onClick={scrollToSportokPage}
+  >
+    SPORTOK
+    <div
+      className={`absolute left-0 top-full mt-2 w-48 bg-gray-900 text-white p-3 rounded shadow-xl transition-opacity ${
+        showMenu.resources ? "opacity-100 visible" : "opacity-0 invisible"
+      }`}
+    >
+      <ul>
+        <li>
+          <a href="/resources-1" className="block hover:text-indigo-400 transition">
+            Edzőterem 
+          </a>
+        </li>
+        <li>
+          <a href="/resources-2" className="block hover:text-indigo-400 transition">
+            Futás
+          </a>
+        </li>
+        <li>
+          <a href="/resources-3" className="block hover:text-indigo-400 transition">
+            Mozgás
+          </a>
+        </li>
+      </ul>
+    </div>
+  </li>
+  <li
+    className="relative group cursor-pointer font-bold text-white hover:text-red-800 transition duration-300"
+    onMouseEnter={() => setShowMenu({ ...showMenu, contact: true })}
+    onMouseLeave={() => setShowMenu({ ...showMenu, contact: false })}
+    onClick={scrollToContactPage}
+  >
+    KONTAKT
+    <div
+      className={`absolute left-0 top-full mt-2 w-48 bg-gray-900 text-white p-3 rounded shadow-xl transition-opacity ${
+        showMenu.contact ? "opacity-100 visible" : "opacity-0 invisible"
+      }`}
+
       ÉTRENDEK
       <div
         className={`absolute left-0 top-full mt-2 w-40 bg-gray-900 text-white p-4 rounded shadow-xl transition-opacity ${
@@ -295,6 +402,7 @@ const Dashboard = () => {
       onMouseEnter={() => setShowMenu({ ...showMenu, contact: true })}
       onMouseLeave={() => setShowMenu({ ...showMenu, contact: false })}
       onClick={scrollToContactPage}
+
     >
       KONTAKT
       <div

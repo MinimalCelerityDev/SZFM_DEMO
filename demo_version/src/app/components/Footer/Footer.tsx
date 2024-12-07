@@ -1,9 +1,20 @@
+"use client"
+
 import React from 'react';
 import { FaInstagram, FaFacebookF, FaTwitter, FaLinkedinIn } from 'react-icons/fa'; 
 
 const Footer: React.FC = () => {
+
+    const scrollToSection = (sectionId: string) => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    };
+
+
   return (
-    <footer className="bg-red-950 text-white font-bold p-12 text-center relative transition duration-500 ease-in-out transform hover:scale-105">
+    <footer className="bg-gray-950 text-white font-bold p-12 text-center relative transition duration-500 ease-in-out transform hover:scale-105">
     
       {/*
       
@@ -38,20 +49,12 @@ const Footer: React.FC = () => {
         <a href="#" className="hover:text-gray-300" title="Connect on LinkedIn"><FaLinkedinIn /></a>
       </div>
 
-      {/*
-      
-      Alsó rész a gombokkal
-
-      */}
-
-
+      {/* Footer Navigation */}
       <nav className="text-lg border-t border-white/20 pt-6 mt-6">
-        <a href="#" className="hover:text-gray-300 px-3" title="Home">FŐOLDAL</a>
-        <a href="#" className="hover:text-gray-300 px-3" title="About Us">FEATURES</a>
-        <a href="#" className="hover:text-gray-300 px-3" title="Our Works">EDZÉSTERVEK</a>
-        <a href="#" className="hover:text-gray-300 px-3" title="Client Reviews">PROGRAMS</a>
-        <a href="/adatkezeles_es_sutik" className="hover:text-gray-300 px-3" title="Contact Us">ADATKEZELÉS ÉS SÜTIK</a>
-        <a href="#" className="hover:text-gray-300 px-3" title="Contact Us">KAPCSOLAT</a>
+        <button onClick={() => scrollToSection('LandingPage')} className="hover:text-gray-300 px-3" title="Home">FŐOLDAL</button>
+        <button onClick={() => scrollToSection('PricingPage')} className="hover:text-gray-300 px-3" title="Edzéstervek">EDZÉSTERVEK</button>
+        <a href="/adatkezeles_es_sutik" className="hover:text-gray-300 px-3" title="Adatkezelés és sütik">ADATKEZELÉS ÉS SÜTIK</a>
+        <button onClick={() => scrollToSection('ContactPage')} className="hover:text-gray-300 px-3" title="Kapcsolat">KAPCSOLAT</button>
       </nav>
     </footer>
   );

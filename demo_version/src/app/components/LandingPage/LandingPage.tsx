@@ -76,10 +76,6 @@ const LandingPage = () => {
           */}
 
           <ul className="flex gap-6 text-lg font-semibold text-gray-300">
-            <li className="relative group cursor-pointer" onClick={scrollToSecondPage}>
-              <span className="text-white group-hover:text-red-500 transition duration-300">FEATURES</span>
-              <div className="absolute left-0 bottom-[-5px] w-0 h-[2px] bg-red-500 transition-all duration-300 group-hover:w-full"></div>
-            </li>
             <li className="relative group cursor-pointer" onClick={scrollToPrcing}>
               <span className="text-white group-hover:text-red-500 transition duration-300">Edzéstervek</span>
               <div className="absolute left-0 bottom-[-5px] w-0 h-[2px] bg-red-500 transition-all duration-300 group-hover:w-full"></div>
