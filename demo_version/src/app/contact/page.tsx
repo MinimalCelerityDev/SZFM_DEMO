@@ -34,19 +34,19 @@ const ContactPage = () => {
         backgroundPosition: "center",
       }}
     >
-      <div className="container relative z-10 mx-auto px-8 py-12 bg-opacity-80 bg-white rounded-lg shadow-xl">
+      <div className="container relative z-10 mx-auto px-6 py-8 bg-opacity-80 bg-white rounded-lg shadow-xl max-w-lg">
         {/* Cím */}
-        <h1 className="text-4xl font-extrabold text-center text-red-900 tracking-tight mb-8 uppercase">
+        <h1 className="text-3xl font-extrabold text-center text-red-900 tracking-tight mb-6 uppercase">
           Kapcsolat
         </h1>
         
         {/* Leírás */}
-        <p className="text-center text-lg text-red-900 mb-6 px-6">
+        <p className="text-center text-lg text-red-900 mb-6 px-4">
           Kérdésekkel, javaslatokkal bátran kereshetsz minket!
         </p>
 
         {/* Form */}
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form onSubmit={handleSubmit} className="space-y-4">
           {/* Név */}
           <div className="relative">
             <input
@@ -55,7 +55,7 @@ const ContactPage = () => {
               name="name"
               value={formData.name}
               onChange={handleInputChange}
-              className="w-full p-4 bg-transparent border-b-2 border-red-900 text-black text-base focus:outline-none focus:ring-0"
+              className="w-full p-3 bg-transparent border-b-2 border-red-900 text-black text-base focus:outline-none focus:ring-0"
               placeholder="Név"
               required
             />
@@ -69,7 +69,7 @@ const ContactPage = () => {
               name="email"
               value={formData.email}
               onChange={handleInputChange}
-              className="w-full p-4 bg-transparent border-b-2 border-red-900 text-black text-base focus:outline-none focus:ring-0"
+              className="w-full p-3 bg-transparent border-b-2 border-red-900 text-black text-base focus:outline-none focus:ring-0"
               placeholder="Email"
               required
             />
@@ -82,9 +82,9 @@ const ContactPage = () => {
               name="message"
               value={formData.message}
               onChange={handleInputChange}
-              className="w-full p-4 bg-transparent border-b-2 border-red-900 text-black text-base focus:outline-none focus:ring-0"
+              className="w-full p-3 bg-transparent border-b-2 border-red-900 text-black text-base focus:outline-none focus:ring-0"
               placeholder="Üzenet"
-              rows="4"
+              rows="3"
               required
             />
           </div>
@@ -101,12 +101,10 @@ const ContactPage = () => {
         </form>
       </div>
 
-      {/* Footer */}
       <footer className="bg-gray-900 text-white py-12 mt-16">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             
-            {/* Logo és információk */}
             <div className="flex flex-col items-center sm:items-start">
               <h1 className="text-4xl font-extrabold text-red-700 mb-4">FFLIFE</h1>
               <p className="text-lg text-gray-400 mb-4">
@@ -125,7 +123,6 @@ const ContactPage = () => {
               </div>
             </div>
             
-            {/* Kapcsolat */}
             <div className="flex flex-col items-center sm:items-start">
               <h3 className="text-xl font-semibold text-white mb-4">Kapcsolat</h3>
               <ul className="space-y-2">
@@ -135,7 +132,6 @@ const ContactPage = () => {
               </ul>
             </div>
 
-            {/* Hasznos linkek */}
             <div className="flex flex-col items-center sm:items-start">
               <h3 className="text-xl font-semibold text-white mb-4">Hasznos Linkek</h3>
               <ul className="space-y-2">
@@ -146,7 +142,6 @@ const ContactPage = () => {
               </ul>
             </div>
             
-            {/* Hírek és blog */}
             <div className="flex flex-col items-center sm:items-start">
               <h3 className="text-xl font-semibold text-white mb-4">Jogi nyilatkozatok</h3>
               <ul className="space-y-2">
