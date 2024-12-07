@@ -6,7 +6,6 @@ const Footer = () => {
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           
-          {/* Logo és információk */}
           <div className="flex flex-col items-center sm:items-start">
             <h1 className="text-4xl font-extrabold text-red-600 mb-4">Weboldal Neve</h1>
             <p className="text-lg text-gray-400 mb-4">
@@ -25,7 +24,6 @@ const Footer = () => {
             </div>
           </div>
           
-          {/* Kapcsolat */}
           <div className="flex flex-col items-center sm:items-start">
             <h3 className="text-xl font-semibold text-white mb-4">Kapcsolat</h3>
             <ul className="space-y-2">
@@ -35,7 +33,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Hasznos linkek */}
           <div className="flex flex-col items-center sm:items-start">
             <h3 className="text-xl font-semibold text-white mb-4">Hasznos Linkek</h3>
             <ul className="space-y-2">
@@ -46,7 +43,6 @@ const Footer = () => {
             </ul>
           </div>
           
-          {/* Hírek és blog */}
           <div className="flex flex-col items-center sm:items-start">
             <h3 className="text-xl font-semibold text-white mb-4">Blog & Hírek</h3>
             <ul className="space-y-2">
