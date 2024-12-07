@@ -11,14 +11,12 @@ const ArakSportokPage = () => {
         backgroundPosition: "center",
       }}
     >
-      {/* Arak és Sportok Section */}
       <div className="container mx-auto px-4 py-8 text-center">
         <p className="text-lg text-red-600 mb-6">
           Válassz a három különböző csomag közül, hogy elérd a céljaidat és a legjobb formádat! Minden csomag tartalmaz egy sportot és egy étrendet.
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {/* Csomag 1 */}
           <div
             id="package1"
             className="bg-gradient-to-tl from-black via-gray-800 to-black p-4 rounded-lg shadow-sm text-center transform transition duration-300 hover:scale-105"
@@ -55,7 +53,6 @@ const ArakSportokPage = () => {
             </a>
           </div>
 
-          {/* Csomag 2 */}
           <div
             id="package2"
             className="bg-gradient-to-tl from-black via-gray-800 to-black p-4 rounded-lg shadow-sm text-center transform transition duration-300 hover:scale-105"
@@ -93,7 +90,6 @@ const ArakSportokPage = () => {
             </a>
           </div>
 
-          {/* Csomag 3 */}
           <div
             id="package3"
             className="bg-gradient-to-tl from-black via-gray-800 to-black p-4 rounded-lg shadow-sm text-center transform transition duration-300 hover:scale-105"
