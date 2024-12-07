@@ -35,19 +35,15 @@ const ContactPage = () => {
       }}
     >
       <div className="container relative z-10 mx-auto px-6 py-8 bg-opacity-80 bg-white rounded-lg shadow-xl max-w-md">
-        {/* Cím */}
         <h1 className="text-3xl font-extrabold text-center text-red-900 tracking-tight mb-6 uppercase">
           Kapcsolat
         </h1>
         
-        {/* Leírás */}
         <p className="text-center text-lg text-red-900 mb-4 px-4">
           Kérdésekkel, javaslatokkal bátran kereshetsz minket!
         </p>
 
-        {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-4">
-          {/* Név */}
           <div className="relative">
             <input
               type="text"
@@ -89,7 +85,6 @@ const ContactPage = () => {
             />
           </div>
 
-          {/* Küldés gomb */}
           <div className="flex justify-center">
             <button
               type="submit"
