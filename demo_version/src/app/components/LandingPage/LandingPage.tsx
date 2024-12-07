@@ -6,12 +6,6 @@ import cuccos from "../LandingPage/cucos.png";
 
 const LandingPage = () => {
 
-   const scrollToSecondPage = () => {
-
-    document.getElementById('secondPage').scrollIntoView({ behavior: 'smooth' });
-
-  };
-
   const scrollToPrcing = () => {
 
     document.getElementById('PricingPage').scrollIntoView({ behavior: 'smooth' });
