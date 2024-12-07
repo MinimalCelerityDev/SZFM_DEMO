@@ -81,15 +81,15 @@ const LandingPage = () => {
               <div className="absolute left-0 bottom-[-5px] w-0 h-[2px] bg-red-500 transition-all duration-300 group-hover:w-full"></div>
             </li>
             <li className="relative group cursor-pointer" onClick={scrollToPrcing}>
-              <span className="text-white group-hover:text-red-500 transition duration-300">PRICING</span>
+              <span className="text-white group-hover:text-red-500 transition duration-300">Edzéstervek</span>
               <div className="absolute left-0 bottom-[-5px] w-0 h-[2px] bg-red-500 transition-all duration-300 group-hover:w-full"></div>
             </li>
             <li className="relative group cursor-pointer" onClick={scrollToPrograms}>
-              <span className="text-white group-hover:text-red-500 transition duration-300">PROGRAMS</span>
+              <span className="text-white group-hover:text-red-500 transition duration-300">FAQ</span>
               <div className="absolute left-0 bottom-[-5px] w-0 h-[2px] bg-red-500 transition-all duration-300 group-hover:w-full"></div>
             </li>
             <li className="relative group cursor-pointer" onClick={scrollToContact}>
-              <span className="text-white group-hover:text-red-500 transition duration-300">CONTACT</span>
+              <span className="text-white group-hover:text-red-500 transition duration-300">Kapcsolat</span>
               <div className="absolute left-0 bottom-[-5px] w-0 h-[2px] bg-red-500 transition-all duration-300 group-hover:w-full"></div>
             </li>
           </ul>
@@ -102,12 +102,12 @@ const LandingPage = () => {
           <div className="flex gap-3">
             <Link href="/login">
               <button className="px-6 py-3 text-white bg-black rounded-xl border-2 border-white hover:bg-white hover:text-black transition-all duration-400 shadow-lg">
-                Login
+                Belépés
               </button>
             </Link>
             <Link href="/register">
               <button className="px-6 py-3 text-white bg-red-950 rounded-xl border-2 border-red hover:bg-black hover:text-red-500 transition-all duration-400 shadow-lg">
-                Register
+                Regisztráció
               </button>
             </Link>
           </div>

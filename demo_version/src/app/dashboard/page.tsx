@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import boritos from "../dashboard/boritos.png";
+import boritos from "../dashboard/belepes_tajkep.jpg";
 import EtrendekPage from "../etrendek/page";
 import ArakPage from "../arak/page";
 import SportokPage from "../sportok/page";

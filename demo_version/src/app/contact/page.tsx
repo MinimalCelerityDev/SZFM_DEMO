@@ -6,7 +6,7 @@ const ContactPage = () => {
       id="ContactPage"
       className="min-h-screen flex items-center justify-center text-white"
       style={{
-        backgroundImage: `url('/contact_kep.jpg')`,
+        backgroundImage: `url('/kontakt_kep.jpg')`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
