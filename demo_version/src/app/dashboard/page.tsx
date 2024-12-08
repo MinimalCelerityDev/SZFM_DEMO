@@ -8,6 +8,8 @@ import SportokPage from "../sportok/page";
 import ContactPage from "../contact/page";
 import FooterPage from "../footer/page";
 import { jsPDF } from "jspdf";
+import { title } from "process";
+import { content } from "html2canvas/dist/types/css/property-descriptors/content";
 
 const Dashboard = () => {
   let timeout: NodeJS.Timeout | null = null;
@@ -181,61 +183,204 @@ const Dashboard = () => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   const generatePdf = () => {
     const doc = new jsPDF();
   
+    // Adatok
+    const weight = userData?.weight || 0;
+    const height = userData?.height || 0;
+    const age = userData?.age || 30;
+  
+    // Margók és oldalméret
+    const pageWidth = doc.internal.pageSize.width;
+    const pageHeight = doc.internal.pageSize.height;
+  
+    // Halvány piros háttér
+    doc.setFillColor(255, 200, 200); // RGB szín: halvány piros
+    doc.rect(0, 0, pageWidth, pageHeight, 'F'); // Az egész oldal kitöltése színnel
+  
+    // Másik betűtípus beállítása (pl. Times New Roman)
+    doc.setFont("times", "normal"); // Választhatunk más betűtípust is, mint például `times` vagy `courier`
+  
     // Cím formázása
-    doc.setFontSize(18);
+    doc.setFontSize(20);
     doc.setTextColor(40);
-    doc.text("Profil Adatok", 105, 20, null, null, 'center');
+    doc.text("Profil Adatok", pageWidth / 2, 20, { align: "center" });
   
-    // Súly és magasság alapján étrend hozzáadása
-    const diet = getDiet(userData?.weight, userData?.height);
-  
-    // Alap szöveg formázása
-    doc.setFontSize(12);
-    doc.setTextColor(100);
-  
-    // Adatok kiírása
-    const dataLines = [
-      `Teljes név: ${user.firstName} ${user.lastName}`,
-      `Email: ${user.email}`,
-      `Kedvenc kaják: ${userData?.favoriteFood || "Not specified"}`,
-      `Kedvenc italok: ${userData?.favoriteDrinks || "Not specified"}`,
-      `Kedvenc sportok: ${userData?.favoriteSports || "Not specified"}`,
-      `Alvási órák: ${userData?.sleepHours || "Not specified"}`,
-      `Hobbik: ${userData?.hobbies || "Not specified"}`,
-      `Súly: ${userData?.weight || "Not specified"} kg`,
-      `Magasság: ${userData?.height || "Not specified"} cm`,
-      `Ajánlott étrend: ${diet}`
+    // Szekciók adatai
+    const sections = [
+      {
+        title: "Alapinformációk",
+        content: [
+          `Teljes név: ${user.firstName} ${user.lastName}`,
+          `Email: ${user.email}`,
+        ],
+      },
+      {
+        title: "Életmód",
+        content: [
+          `Kedvenc kaják: ${userData?.favoriteFood || "Not specified"}`,
+          `Kedvenc italok: ${userData?.favoriteDrinks || "Not specified"}`,
+          `Kedvenc sportok: ${userData?.favoriteSports || "Not specified"}`,
+          `Alvási órák: ${userData?.sleepHours || "Not specified"}`,
+          `Hobbik: ${userData?.hobbies || "Not specified"}`,
+        ],
+      },
+      {
+        title: "Fizikai adatok",
+        content: [`Súly: ${weight} kg`, `Magasság: ${height} cm`],
+      },
+      {
+        title: "Ajánlott étrend",
+        content: [`${getDiet(weight, height)}`],
+      },
+      {
+        title: "Stresszkezelés",
+        content: [`${getStressManagementTechniques(age)}`],
+      },
+      {
+        title: "Szociális élet tippek",
+        content: [`${getSocialLifeTips(age)}`]
+      }
     ];
   
-    // Adatok kiírása, színbeállításokkal
-    dataLines.forEach((line, index) => {
-      let yPos = 40 + (index * 10);
-      if (index === 7) {  // Súlyadatok kiemelése színes háttérrel
-        doc.setFillColor(...getWeightColor(userData?.weight));
-        doc.rect(20, yPos - 5, 170, 10, 'F');
-      }
-      doc.setTextColor(0, 0, 0); // Fekete szöveg
-      doc.text(line, 20, yPos);
+    // Szöveg kiírása
+    let yPos = 40; // Kezdő y-pozíció
+    const lineHeight = 10; // Sorok közötti távolság
+  
+    sections.forEach((section) => {
+      ensureNewPage();
+  
+      // Címek középre igazítása
+      doc.setFont("times", "extrabold"); // Használhatunk más betűtípust is, mint pl. `times`, `courier`
+      doc.setFontSize(16);
+      doc.setTextColor(70);
+      doc.text(section.title, pageWidth / 2, yPos, { align: "center" });
+      yPos += lineHeight;
+  
+      // Tartalom középre igazítása
+      doc.setFont("times", "normal");
+      doc.setFontSize(12);
+      doc.setTextColor(50);
+      section.content.forEach((line) => {
+        ensureNewPage();
+        const splitText = doc.splitTextToSize(line, pageWidth - 30); // Margin miatt csökkentett szélesség
+        splitText.forEach((textPart) => {
+          ensureNewPage();
+          doc.text(textPart, pageWidth / 2, yPos, { align: "center" });
+          yPos += lineHeight;
+        });
+      });
+      yPos += lineHeight; // Szekciók közötti térköz
     });
   
     // PDF mentése
     doc.save("Profil_Adatok.pdf");
+  
+    // Új oldal biztosítása, ha szükséges
+    function ensureNewPage() {
+      if (yPos + lineHeight > pageHeight) {
+        doc.addPage();
+        yPos = 15; // Új oldalon kezdő margó
+      }
+    }
+  };
+  
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  function getSocialLifeTips(age) {
+    if (age < 25) {
+      return "Új barátokat szerezni, közösségi eseményeken részt venni és felfedezni a lehetőségeket.";
+    } else {
+      return "Ápolni a régi barátságokat, családi összejöveteleken részt venni és közösségi csoportokhoz csatlakozni.";
+    }
   }
   
-  // Súly alapján háttérszín meghatározása
-  function getWeightColor(weight) {
-    if (weight > 0 && weight <= 60) {
-      return [255, 255, 0]; // Sárga
-    } else if (weight > 60 && weight <= 80) {
-      return [0, 0, 255]; // Kék
-    } else if (weight > 80 && weight <= 100) {
-      return [255, 0, 0]; // Piros
+  
+
+  function getStressManagementTechniques(age) {
+    if (age < 30) {
+      return "Aktív pihenés, sportolás, meditáció, és a 'nem mondás' gyakorlása.";
+    } else {
+      return "Mély légzés, relaxációs gyakorlatok, hobbik és kreatív tevékenységek.";
     }
-    return [255, 255, 255]; // Alapértelmezett fehér
   }
+  
+
   
   // Étrend meghatározása súly és magasság alapján
   function getDiet(weight, height) {
@@ -245,10 +390,53 @@ const Dashboard = () => {
       return "Étrend B: Fejlesztett fehérjebevitel, magas rosttartalmú ételekkel.";
     } else if (weight > 80 && height > 170) {
       return "Étrend C: Magas fehérjetartalmú, támogatja az izomépítést.";
+    } else if ( weight > 110 && height > 190) {
+      return "Étrend D: Nagyon magas fehérjetartalom, támogatja az egészséges életmódot."
     }
     return "Étrend D: Kiegyensúlyozott, megfelel a napi szükségleteknek.";
   }
+
   
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
 
   return (
