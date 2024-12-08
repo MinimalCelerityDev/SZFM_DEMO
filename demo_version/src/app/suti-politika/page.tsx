@@ -8,7 +8,7 @@ const SutiPolitikaPage = () => {
     <div
       className="min-h-screen flex flex-col items-center justify-center text-white"
       style={{
-        backgroundImage: "url('/suti_hatter.png')", 
+        backgroundImage: "url('/adatvedelem_hatter.jpg')", 
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",

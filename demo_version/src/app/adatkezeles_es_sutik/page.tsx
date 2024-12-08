@@ -31,7 +31,7 @@ const AdatkezelesPage = () => {
       <div
         className="w-full md:w-1/2 h-1/2 md:h-screen flex items-center justify-center text-white relative"
         style={{
-          backgroundImage: "url('/adat_suti.png')",
+          backgroundImage: "url('/adatvedelem_hatter.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",

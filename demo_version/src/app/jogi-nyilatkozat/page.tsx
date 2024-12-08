@@ -8,7 +8,7 @@ const JogiNyilatkozatPage = () => {
     <div
       className="min-h-screen flex flex-col items-center justify-center text-white"
       style={{
-        backgroundImage: "url('/jogi_hatter.png')",
+        backgroundImage: "url('/adatvedelem_hatter.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
@@ -22,7 +22,7 @@ const JogiNyilatkozatPage = () => {
         <FaArrowLeft size={24} />
       </button>
       <div className="bg-white-300 bg-opacity-60 p-6 pt-16 rounded-lg shadow-xl text-center max-w-4xl overflow-y-auto">
-        <h1 className="text-5xl font-extrabold text-red-800 underline pt-10 mb-6">Jogi Nyilatkozat</h1>
+        <h1 className="text-5xl font-extrabold text-white underline pt-10 mb-6">Jogi Nyilatkozat</h1>
         <p className="text-lg leading-relaxed mb-4">
           Ez a jogi nyilatkozat a weboldal használatával kapcsolatos jogi feltételeket és információkat tartalmazza.
           Kérjük, figyelmesen olvassa el, hogy megértse a jogait és kötelezettségeit a weboldal használata során.

@@ -1,8 +1,10 @@
 "use client";
 
 import React, { useState } from "react";
+import emailjs from "emailjs-com";
 
 const ContactPage = () => {
+
 
   const scrollToEtrendekPage = () => {
     setTimeout(() => {
@@ -59,6 +61,31 @@ const ContactPage = () => {
     console.log("Form submitted", formData);
     alert("Üzenet elküldve!");
     setFormData({ name: "", email: "", message: "" });
+    const templateParams = {
+      name: formData.name,
+      email: formData.email,
+      message: formData.message,
+    };
+
+    // Send email via EmailJS
+    emailjs
+      .send(
+        "fflifedeik", // Your service ID from EmailJS
+        "fflifedeiktemp", // Your template ID from EmailJS
+        templateParams,
+        "YNkX0HVTu2nBd5Kiz" // Your user ID from EmailJS
+      )
+      .then(
+        (response) => {
+          console.log("Email sent successfully:", response);
+          alert("Üzenet elküldve!");
+        },
+        (error) => {
+          console.error("Failed to send email:", error);
+          alert("Hiba történt az üzenet küldésekor!");
+        }
+      );
+    
   };
 
   return (

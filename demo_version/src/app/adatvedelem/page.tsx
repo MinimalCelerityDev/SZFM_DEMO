@@ -8,7 +8,7 @@ const AdatvedelemPage = () => {
     <div
       className="min-h-screen flex flex-col items-center justify-center text-white"
       style={{
-        backgroundImage: "url('/adatvedelem_hatter.png')", 
+        backgroundImage: "url('/adatvedelem_hatter.jpg')", 
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",

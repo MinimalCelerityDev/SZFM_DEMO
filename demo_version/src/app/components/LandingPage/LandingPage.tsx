@@ -3,9 +3,16 @@
 import Link from "next/link";
 import Image from "next/image";
 import cuccos from "../LandingPage/cucos.png"; 
+import { useState } from "react";
+
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css'; // CSS importálása
 
 const LandingPage = () => {
+  const [totalCalories, setTotalCalories] = useState(0);
+  const maxCalories = 2000; // Maximális napi kalória limit
 
+  // Scroll funkciók
   const scrollToPrcing = () => {
     document.getElementById('PricingPage').scrollIntoView({ behavior: 'smooth' });
   };
@@ -17,6 +24,17 @@ const LandingPage = () => {
   const scrollToContact = () => {
     document.getElementById('ContactPage').scrollIntoView({ behavior: 'smooth' });
   };
+
+  // Kalória módosító
+  const handleInputChange = (event) => {
+    const newCalories = parseInt(event.target.value, 10);
+    if (!isNaN(newCalories)) {
+      setTotalCalories(newCalories);
+    }
+  };
+
+  // Számolás és progress bar szélessége
+  const progress = (totalCalories / maxCalories) * 100;
 
   return (
     <div
@@ -80,6 +98,34 @@ const LandingPage = () => {
             Az életet nem várni kell, hanem <span className="font-extrabold text-4xl text-red-500">alakítani</span>. 
           </p>
 
+          {/* Kalória Számláló és Progress Bar */}
+          <div className="mt-8 space-y-4">
+            <h2 className="text-xl font-semibold text-gray-300">Kövesd nyomon a napi kalóriákat!</h2>
+            <input
+              type="number"
+              value={totalCalories}
+              onChange={handleInputChange}
+              className="w-full max-w-xs px-4 py-2 border-2 border-gray-300 rounded-md"
+              placeholder="Írd be a napi kalóriát"
+            />
+            <div className="flex justify-center mt-4">
+              <div style={{ width: 150, height: 150 }}>
+                <CircularProgressbar
+                  value={progress}
+                  text={`${Math.min(totalCalories, maxCalories)} kcal`}
+                  styles={buildStyles({
+                    pathColor: progress > 100 ? 'red' : 'green',
+                    textColor: 'black',
+                    trailColor: '#d6d6d6',
+                    strokeWidth: 10,
+                    textSize: '24px',
+                  })}
+                />
+              </div>
+            </div>
+            <p className="mt-2 text-white text-lg">{Math.min(totalCalories, maxCalories)} / {maxCalories} kalória</p>
+          </div>
+
           {/* Call-to-action gombok */}
           <div className="mt-8 flex justify-center gap-6">
             <button
@@ -97,7 +143,6 @@ const LandingPage = () => {
           </div>
         </div>
       </div>
-
     </div>
   );
 };
