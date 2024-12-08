@@ -1,0 +1,51 @@
+Tárgyalási Jegyzet – Weboldal Fejlesztési Igények
+Téma: Új weboldal fejlesztése az egészséges életmód támogatására
+Időpont: 2024.11.01
+Helyszín: Debrecen
+Résztvevők: Sebastian Balog, Szabó Rudolf, Fekete Rudolf, Hajdú Bence
+
+Jegyzetek az ügyfél elvárásairól:
+Alapcél
+
+Egy könnyen kezelhető és látványos weboldalt szeretnének, amely az egészséges életmódra vágyó felhasználóknak nyújt támogatást.
+Az oldal központi elemei: étrendek és edzéstervek.
+Regisztráció és Bejelentkezés
+
+Egyszerű regisztrációs rendszer.
+Lehetőség a felhasználói profil személyre szabására (pl. célkitűzések, edzéstervek követése).
+Tartalom és Funkciók
+
+Étrendek: Különböző típusú étrendek, pl. fogyókúrás, izomnövelő, vegetáriánus.
+Edzéstervek: Kezdő és haladó szintű programok különböző célokhoz (pl. zsírégetés, állóképesség).
+Motivációs elemek: Felhasználók eredményeinek nyomon követése (pl. grafikonok, statisztikák).
+Csomagok és Előfizetések
+
+Ingyenes verzió: Alapfunkciók elérhetők korlátozott tartalommal.
+
+Modern és letisztult design: Fitneszhez illeszkedő színek és motiváló megjelenés.
+Reszponzivitás: Mobilon, tableten és asztali gépen is tökéletesen használható legyen.
+Egyszerű navigáció: Gyors hozzáférés a tartalmakhoz, barátságos kezelőfelület.
+Adminisztrációs Feladatok
+
+Lehetőség az adminisztrátorok számára a tartalmak (pl. étrendek, edzéstervek) frissítésére.
+Előfizetések és felhasználói fiókok kezelése egy adminisztrációs panelen keresztül.
+Biztonság
+
+Adatbiztonság elsődleges fontosságú (pl. SSL tanúsítvány, GDPR-megfelelés).
+Bővíthetőség
+
+Az oldal legyen később könnyen bővíthető új funkciókkal (pl. videókurzusok, fórumok, további szűrők).
+Kiemelt kérések
+
+Az étrendek és edzéstervek praktikus, mégis látványos megjelenítése.
+Az előfizetések vonzó bemutatása, hogy ösztönözze a felhasználókat a prémium csomagok megvásárlására.
+Lehetőség jövőbeli fejlesztésre, pl. további szűrési opciók hozzáadása az edzéstervekhez (árkategória, időtartam).
+Egyéb megjegyzések:
+
+Az ügyfél motivált egy hosszú távon fenntartható és rugalmas rendszer létrehozásában.
+Fontos számára a vizuális megjelenés és a funkciók felhasználóbarát kialakítása.
+Kiemelt szempont, hogy a platform egyszerre legyen inspiráló és praktikus.
+Következő lépések:
+
+Készítsünk részletes fejlesztési ajánlatot és ütemtervet.
+Egyeztessünk az ügyféllel az esetleges további igényekről.
