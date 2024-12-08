@@ -180,42 +180,6 @@ const Dashboard = () => {
   if (!user) {
     return <div>Loading...</div>;
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   const generatePdf = () => {
     const doc = new jsPDF();
   

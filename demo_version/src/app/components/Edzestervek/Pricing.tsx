@@ -28,8 +28,10 @@ const PricingPage = () => {
           <h2 className="text-2xl font-bold mb-4">Ingyenes</h2>
           <p className="mb-4">Egyszerű kezdés kezdőknek</p>
           <ul className="list-disc pl-6 mb-4">
-            <li>Heti alap edzésterv.</li>
-            <li>Korlátozott hozzáférés videós oktatóanyagokhoz.</li>
+            <li>Heti 1 étrend.</li>
+            <li>Heti 1 edzésprogram</li>
+            <li>Alap információk és tanácsok</li>
+            <li>1 egyszerű étkezési terv</li>
             <li>Emailes ügyfélszolgálat.</li>
           </ul>
           <p className="text-3xl font-bold py-2">INGYENES</p>
@@ -50,12 +52,13 @@ const PricingPage = () => {
           <h2 className="text-2xl font-bold mb-4">Pro</h2>
           <p className="mb-4">Maximális eredmény elérése</p>
           <ul className="list-disc pl-6 mb-4">
-            <li>Teljes edzésterv.</li>
-            <li>Táplálkozási ajánlások.</li>
-            <li>Hozzáférés élő edzésekhez.</li>
-            <li>Gyorsabb ügyféltámogatás.</li>
+          <li>Testépítés sport: Súlyemelés)</li>
+          <li>2 étrend (Pro étrend)</li>
+          <li>Emailes támogatás</li>
+            <li>Ajánlott heti aktivitás: 4-6 alkalom</li>
+            <li>Legjobb sportok: Súlyemelés, HIIT edzés, Kettlebell</li>
           </ul>
-          <p className="text-3xl font-bold py-2">6000HUF / hónap</p>
+          <p className="text-3xl font-bold py-2">4000 HUF</p>
           <Link href="/register">
               <button className="w-full py-3 bg-black text-white rounded-lg font-bold">
                 Hozz létre egy fíókot magadnak
@@ -73,12 +76,13 @@ const PricingPage = () => {
           <h2 className="text-2xl font-bold mb-4">Premium</h2>
           <p className="mb-4">Prémium élmény és szakmai támogatás</p>
           <ul className="list-disc pl-6 mb-4">
-            <li>Személyre szabott edzésterv.</li>
-            <li>Egyéni konzultáció szakértővel.</li>
-            <li>Exkluzív tartalmak és események.</li>
-            <li>Korlátlan hozzáférés minden funkcióhoz.</li>
+            <li>Heti 4 étkezés.</li>
+            <li>24/7 támogatás</li>
+            <li>Exkluzív tartalmak és prémium receptek</li>
+            <li>Heti 1 személyes konzultácíó</li>
+            <li>Minden ami sport és mozgás</li>
           </ul>
-          <p className="text-3xl font-bold py-2">13000HUF / hónap</p>
+          <p className="text-3xl font-bold py-2">7000 HUF</p>
           <Link href="/register">
               <button className="w-full py-3 bg-white text-black rounded-lg font-bold">
                 Hozz létre egy fíókot magadnak
