@@ -1,6 +1,31 @@
 "use client";
 
 const ArakSportokPage = () => {
+
+  const pdfFiles = {
+    freePlan: '/pdfs/Ingyenes_Csomag.pdf',
+    proPlan: '/pdfs/Pro_Csomag.pdf',
+    premiumPlan: '/pdfs/Premium_Csomag.pdf',
+    elso_csomag: '/pdfs/elso_csomag.pdf',
+    masodik_csomag: 'pdfs/masodik_csomag.pdf',
+    hobbi: 'pdfs/hobbi.pdf'
+  };
+
+  const downloadPDFs = (plans) => {
+    plans.forEach((plan) => {
+      const fileUrl = pdfFiles[plan];
+      if (fileUrl) {
+        const link = document.createElement('a');
+        link.href = fileUrl;
+        link.download = fileUrl.split('/').pop(); 
+        link.click();
+      } else {
+        console.error("PDF file not found for plan:", plan);
+      }
+    });
+  };
+
+
   return (
     <div
       id="ArakPage"
@@ -45,12 +70,12 @@ const ArakSportokPage = () => {
                 Legjobb sportok: Futás, Jóga, Úszás
               </p>
             </div>
-            <a
-              href="#"
+            <button
               className="inline-block py-2 px-4 bg-red-900 text-white rounded-full transition-all hover:bg-red-800 mt-3"
+              onClick={() => downloadPDFs(['freePlan','elso_csomag'])}
             >
               Válaszd ezt a csomagot
-            </a>
+            </button>
           </div>
 
           <div
@@ -82,12 +107,12 @@ const ArakSportokPage = () => {
                 Legjobb sportok: Súlyemelés, HIIT edzés, Kettlebell
               </p>
             </div>
-            <a
-              href="#"
+            <button
               className="inline-block py-2 px-4 bg-red-900 text-white rounded-full transition-all hover:bg-red-800 mt-3"
+              onClick={() => downloadPDFs(['proPlan','elso_csomag','masodik_csomag'])}
             >
               Válaszd ezt a csomagot
-            </a>
+            </button>
           </div>
 
           <div
@@ -121,12 +146,12 @@ const ArakSportokPage = () => {
                 Legjobb sportok: Kerékpározás, Tenisz, Túrázás
               </p>
             </div>
-            <a
-              href="#"
-              className="inline-block py-2 px-4 bg-yellow-500 text-white rounded-full transition-all hover:bg-yellow-400 mt-3"
+            <button
+              className="inline-block py-2 px-4 bg-red-900 text-white rounded-full transition-all hover:bg-red-800 mt-3"
+              onClick={() => downloadPDFs(['premiumPlan','elso_csomag','masodik_csomag','hobbi'])}
             >
               Válaszd ezt a csomagot
-            </a>
+            </button>
           </div>
         </div>
       </div>
