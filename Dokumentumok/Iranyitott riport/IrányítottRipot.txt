@@ -1,0 +1,60 @@
+Irányított Riport: Életmód Weboldal Fejlesztési Igények
+Bevezetés
+A MinimalCelerity képviselője egy új életmód weboldal fejlesztését tűzte ki célul, amely támogatja a felhasználókat az egészséges életmód kialakításában. Az oldal központi funkciói között szerepelnek az étrendek és edzéstervek, amelyek az életmódváltás különböző aspektusait ölelik fel. Az oldal emellett üzleti szempontból is értékes prémium csomagokat kínál, amelyek személyre szabott megoldásokat biztosítanak.
+
+Projektcélok
+Felhasználók Segítése
+
+Olyan eszköz biztosítása, amely megkönnyíti az étkezés és mozgás tervezését, nyomon követését.
+Tartalom és Szolgáltatások Bővítése
+
+Széleskörű, professzionálisan összeállított étrendek és edzéstervek.
+Üzleti Lehetőségek
+
+Ingyenes és prémium tartalmak révén új bevételi források megteremtése, kiemelt figyelmet fordítva az előfizetések vonzó bemutatására.
+Funkciók és Technikai Igények
+Regisztráció és Bejelentkezés
+
+Felhasználói profilok: Egyszerű regisztrációs folyamat átlagos felhasználók és prémium ügyfelek számára.
+Profil testreszabása: Célkitűzések, testsúly és előfizetési státusz nyomon követése.
+Étrendek és Edzéstervek
+
+Étrendek: Testreszabható, különféle célokhoz igazított étrendek.
+Edzéstervek: Kezdőtől haladó szintig terjedő programok, egyéni célokhoz optimalizálva.
+Prémium Csomagok és Vásárlási Lehetőségek
+
+Modern, reszponzív felület, amely illeszkedik a fitnesz és életmód témához.
+Intuitív navigáció, amely minden funkciót könnyen elérhetővé tesz.
+Biztonság
+
+GDPR-megfelelőség, SSL tanúsítvány és adatvédelem kiemelten fontos.
+Adminisztrációs Funkciók
+
+Tartalomkezelés: Étrendek és edzéstervek adminisztrátori frissítése.
+Felhasználói és előfizetési adatok kezelése.
+Fejlesztési Prioritások
+Letisztult és Motiváló Dizájn
+
+A felhasználók számára inspiráló és könnyen kezelhető felület biztosítása.
+Prémium Funkciók Kiemelése
+
+Az előfizetési csomagok előnyeinek látványos megjelenítése.
+Rugalmas Struktúra
+
+Az oldal könnyen bővíthető legyen új funkciókkal, például további tartalomkategóriákkal vagy szűrési lehetőségekkel.
+Elvárt Eredmények
+Egy olyan platform, amely:
+
+Támogatja a felhasználókat egészséges életmódjuk megőrzésében.
+Lehetővé teszi az egyéni célok követését és elérését.
+Használható egyszerűen és problémamentesen minden eszközön.
+Célcsoportok Kiszolgálása
+
+Felhasználók: Hatékony és praktikus megoldásokat keresnek.
+Prémium ügyfelek: Exkluzív szolgáltatásokhoz férhetnek hozzá.
+Fenntartható Platform
+
+Folyamatos bővítésre és korszerűsítésre alkalmas megoldás.
+Kérések és Következő Lépések
+Részletes fejlesztési ütemterv készítése.
+A főbb funkciók prototípusának bemutatása a közeljövőben.
