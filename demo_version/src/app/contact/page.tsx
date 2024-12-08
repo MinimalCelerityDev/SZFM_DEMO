@@ -3,6 +3,43 @@
 import React, { useState } from "react";
 
 const ContactPage = () => {
+
+  const scrollToEtrendekPage = () => {
+    setTimeout(() => {
+      const etrendPage = document.getElementById("EtrendPage");
+      if (etrendPage) {
+        etrendPage.scrollIntoView({ behavior: "smooth" }); // Simán görgess oda
+      }
+    }, 100); // Várunk, hogy az elem betöltődjön
+  };
+
+  const scrollToArakPage = () => {
+    setTimeout(() => {
+      const arPage = document.getElementById("ArakPage");
+      if (arPage) {
+        arPage.scrollIntoView({ behavior: "smooth" }); // Simán görgess oda
+      }
+    }, 100); // Várunk, hogy az elem betöltődjön
+  };
+
+  const scrollToSportokPage = () => {
+    setTimeout(() => {
+      const sportPage = document.getElementById("SportokPage");
+      if (sportPage) {
+        sportPage.scrollIntoView({ behavior: "smooth" }); // Simán görgess oda
+      }
+    }, 100); // Várunk, hogy az elem betöltődjön
+  };
+
+  const scrollToContactPage = () => {
+    setTimeout(() => {
+      const contactPage = document.getElementById("ContactPage");
+      if (contactPage) {
+        contactPage.scrollIntoView({ behavior: "smooth" }); // Simán görgess oda
+      }
+    }, 100); // Várunk, hogy az elem betöltődjön
+  };
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -135,18 +172,19 @@ const ContactPage = () => {
             <div className="flex flex-col items-center sm:items-start">
               <h3 className="text-xl font-semibold text-white mb-4">Hasznos Linkek</h3>
               <ul className="space-y-2">
-                <li><a href="/about" className="text-gray-400 hover:text-white transition-colors">Étrendek</a></li>
-                <li><a href="/terms" className="text-gray-400 hover:text-white transition-colors">Árak</a></li>
-                <li><a href="/privacy" className="text-gray-400 hover:text-white transition-colors">Sportok</a></li>
-                <li><a href="/contact" className="text-gray-400 hover:text-white transition-colors">Kontakt</a></li>
+                <li><a className="text-gray-400 hover:text-white transition-colors cursor-pointer" onClick={scrollToEtrendekPage}>Étrendek</a></li>
+                <li><a className="text-gray-400 hover:text-white transition-colors cursor-pointer" onClick={scrollToArakPage}>Árak</a></li>
+                <li><a className="text-gray-400 hover:text-white transition-colors cursor-pointer" onClick={scrollToSportokPage}>Sportok</a></li>
+                <li><a className="text-gray-400 hover:text-white transition-colors cursor-pointer" onClick={scrollToContactPage}>Kontakt</a></li>
               </ul>
             </div>
             
             <div className="flex flex-col items-center sm:items-start">
               <h3 className="text-xl font-semibold text-white mb-4">Jogi nyilatkozatok</h3>
               <ul className="space-y-2">
-                <li><a href="/blog" className="text-gray-400 hover:text-white transition-colors">Süti kezelés</a></li>
-                <li><a href="/news" className="text-gray-400 hover:text-white transition-colors">Adatkezelői nyilatkozat</a></li>
+                <li><a href="/suti-politika" className="text-gray-400 hover:text-white transition-colors">Süti kezelés</a></li>
+                <li><a href="/jogi-nyilatkozat" className="text-gray-400 hover:text-white transition-colors">Adatkezelői nyilatkozat</a></li>
+                <li><a href="/adatvedelem" className="text-gray-400 hover:text-white transition-colors">Adatvédelem</a></li>
               </ul>
             </div>
             
