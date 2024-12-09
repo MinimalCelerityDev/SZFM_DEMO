@@ -28,7 +28,6 @@ const JogiNyilatkozatPage = () => {
           Kérjük, figyelmesen olvassa el, hogy megértse a jogait és kötelezettségeit a weboldal használata során.
         </p>
 
-        {/* Hosszú jogi nyilatkozat */}
         <p className="text-lg leading-relaxed mb-4">
           <strong>1. Általános Feltételek:</strong> A weboldal használatával Ön elfogadja a jelen jogi nyilatkozatban
           foglalt feltételeket. Ha nem ért egyet ezekkel, kérjük, ne használja a weboldalt.
