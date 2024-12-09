@@ -37,7 +37,7 @@ const ArakSportokPage = () => {
       }}
     >
       <div className="container mx-auto px-4 py-8 text-center">
-        <p className="text-lg text-red-600 mb-6">
+        <p className="text-lg text-white mb-6">
           Válassz a három különböző csomag közül, hogy elérd a céljaidat és a legjobb formádat! Minden csomag tartalmaz egy sportot és egy étrendet.
         </p>
 
@@ -46,7 +46,7 @@ const ArakSportokPage = () => {
             id="package1"
             className="bg-gradient-to-tl from-black via-gray-800 to-black p-4 rounded-lg shadow-sm text-center transform transition duration-300 hover:scale-105"
           >
-            <h2 className="text-2xl font-bold text-red-500">Csomag 1</h2>
+            <h2 className="text-2xl font-bold text-red-500">Ingyenes</h2>
             <p className="text-lg mt-2 text-gray-300">3000 HUF</p>
             <div className="mt-3">
               <h3 className="text-base text-white">Tartalmazza:</h3>
@@ -82,7 +82,7 @@ const ArakSportokPage = () => {
             id="package2"
             className="bg-gradient-to-tl from-black via-gray-800 to-black p-4 rounded-lg shadow-sm text-center transform transition duration-300 hover:scale-105"
           >
-            <h2 className="text-2xl font-bold text-red-500">Csomag 2</h2>
+            <h2 className="text-2xl font-bold text-red-500">Pro csomag</h2>
             <p className="text-lg mt-2 text-gray-300">6000 HUF</p>
             <div className="mt-3">
               <h3 className="text-base text-white">Tartalmazza:</h3>
@@ -119,7 +119,7 @@ const ArakSportokPage = () => {
             id="package3"
             className="bg-gradient-to-tl from-black via-gray-800 to-black p-4 rounded-lg shadow-sm text-center transform transition duration-300 hover:scale-105"
           >
-            <h2 className="text-2xl font-bold text-yellow-500">Csomag 3</h2>
+            <h2 className="text-2xl font-bold text-yellow-500">Premium csomag</h2>
             <p className="text-lg mt-2 text-gray-300">10000 HUF</p>
             <div className="mt-3">
               <h3 className="text-base text-white">Tartalmazza:</h3>

@@ -459,7 +459,7 @@ const Dashboard = () => {
           backgroundPosition: "center",
         }}
       >
-        <header className="w-full flex justify-between items-center px-6 pt-12 py-4 fixed top-0 z-50 bg-opacity-80 text-white">
+        <header className="w-full flex justify-between items-center px-6 pt-12 py-4 fixed top-0 z-50 bg-black bg-opacity-20 text-white">
           <div className="text-3xl font-bold uppercase tracking-wide text-red-800">
             FFLIFE
           </div>
@@ -483,26 +483,26 @@ const Dashboard = () => {
                 <ul>
                   <li>
                     <a
-                      href="/features-1"
+                      onClick={scrollToEtrendekPage}
                       className="block hover:text-indigo-400 transition"
                     >
-                      Étrendek 1
+                      Ingyenes
                     </a>
                   </li>
                   <li>
                     <a
-                      href="/features-2"
+                      onClick={scrollToEtrendekPage}
                       className="block hover:text-indigo-400 transition"
                     >
-                      Étrendek 2
+                      Pro
                     </a>
                   </li>
                   <li>
                     <a
-                      href="/features-3"
+                      onClick={scrollToEtrendekPage}
                       className="block hover:text-indigo-400 transition"
                     >
-                      Étrendek 3
+                      Premium
                     </a>
                   </li>
                 </ul>
@@ -526,26 +526,26 @@ const Dashboard = () => {
                 <ul>
                   <li>
                     <a
-                      href="/resources-1"
+                      onClick={scrollToSportokPage}
                       className="block hover:text-indigo-400 transition"
                     >
-                      Edzőterem
+                      Általános
                     </a>
                   </li>
                   <li>
                     <a
-                      href="/resources-2"
+                      onClick={scrollToSportokPage}
                       className="block hover:text-indigo-400 transition"
                     >
-                      Futás
+                      Edzőzeterm
                     </a>
                   </li>
                   <li>
                     <a
-                      href="/resources-3"
+                      onClick={scrollToSportokPage}
                       className="block hover:text-indigo-400 transition"
                     >
-                      Mozgás
+                     Hobbi
                     </a>
                   </li>
                 </ul>
@@ -567,26 +567,26 @@ const Dashboard = () => {
                 <ul>
                   <li>
                     <a
-                      href="/pricing-1"
+                      onClick={scrollToArakPage}
                       className="block hover:text-indigo-400 transition"
                     >
-                      A csomag
+                      Ingyenes
                     </a>
                   </li>
                   <li>
                     <a
-                      href="/pricing-2"
+                      onClick={scrollToArakPage}
                       className="block hover:text-indigo-400 transition"
                     >
-                      B csomag
+                      Pro
                     </a>
                   </li>
                   <li>
                     <a
-                      href="/pricing-3"
+                      onClick={scrollToArakPage}
                       className="block hover:text-indigo-400 transition"
                     >
-                      C csomag
+                      Premium
                     </a>
                   </li>
                 </ul>
@@ -645,7 +645,7 @@ const Dashboard = () => {
             </div>
             {/* Kijelentkezés gomb */}
             <button
-              className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition"
+              className="bg-white text-black px-4 py-2 ml-12 rounded-lg hover:bg-red-900 transition"
               onClick={handleLogout}
             >
               Kijelentkezés
@@ -694,39 +694,39 @@ const Dashboard = () => {
               <div className="mt-6 space-y-4">
                 <p>
                   <strong>Kedvenc kaják : </strong>{" "}
-                  {userData?.favoriteFood || "Not specified"}
+                  {userData?.favoriteFood || ""}
                 </p>
                 <p>
                   <strong>Kedvenc italok : </strong>{" "}
-                  {userData?.favoriteDrinks || "Not specified"}
+                  {userData?.favoriteDrinks || ""}
                 </p>
                 <p>
                   <strong>Kedvenc sportok : </strong>{" "}
-                  {userData?.favoriteSports || "Not specified"}
+                  {userData?.favoriteSports || ""}
                 </p>
                 <p>
                   <strong>Alvási órák : </strong>{" "}
-                  {userData?.sleepHours || "Not specified"}
+                  {userData?.sleepHours || ""}
                 </p>
                 <p>
                   <strong>Hobbik : </strong>{" "}
-                  {userData?.hobbies || "Not specified"}
+                  {userData?.hobbies || ""}
                 </p>
                 <p>
                   <strong>Súly (kg) : </strong>{" "}
-                  {userData?.weight || "Not specified"} kg
+                  {userData?.weight || ""} kg
                 </p>
                 <p>
                   <strong>Magasság (cm) : </strong>{" "}
-                  {userData?.height || "Not specified"} cm
+                  {userData?.height || ""} 
                 </p>
                 <p>
                   <strong>Kor (évben) : </strong>{" "}
-                  {userData?.age_person || "Not specified"}
+                  {userData?.age_person || ""}
                 </p>
                 <p>
                   <strong> Sex (cm) : </strong>{" "}
-                  {userData?.sex || "Not specified"} cm
+                  {userData?.sex || ""} 
                 </p>
 
                 <button

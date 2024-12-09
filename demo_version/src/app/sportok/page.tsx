@@ -23,12 +23,6 @@ const SportokPage = () => {
             <p className="text-lg text-white mb-6">
               Legjobb sportok: Futás, Jóga, Úszás
             </p>
-            <a
-              href="#"
-              className="inline-block py-2 px-6 bg-red-900 text-white rounded-full transition-all hover:bg-red-800"
-            >
-              Tudj meg többet
-            </a>
           </div>
 
           <div className="bg-white bg-opacity-20 p-8 rounded-xl shadow-2xl transform transition-all duration-300 hover:scale-105 hover:bg-opacity-30">
@@ -42,12 +36,6 @@ const SportokPage = () => {
             <p className="text-lg text-white mb-6">
               Legjobb sportok: Súlyemelés, HIIT edzés, Kettlebell
             </p>
-            <a
-              href="#"
-              className="inline-block py-2 px-6 bg-red-900 text-white rounded-full transition-all hover:bg-red-800"
-            >
-              Tudj meg többet
-            </a>
           </div>
 
           <div className="bg-white bg-opacity-20 p-8 rounded-xl shadow-2xl transform transition-all duration-300 hover:scale-105 hover:bg-opacity-30">
@@ -61,12 +49,6 @@ const SportokPage = () => {
             <p className="text-lg text-white mb-6">
               Legjobb sportok: Kerékpározás, Tenisz, Túrázás
             </p>
-            <a
-              href="#"
-              className="inline-block py-2 px-6 bg-red-900 text-white rounded-full transition-all hover:bg-red-800"
-            >
-              Tudj meg többet
-            </a>
           </div>
         </div>
       </div>
