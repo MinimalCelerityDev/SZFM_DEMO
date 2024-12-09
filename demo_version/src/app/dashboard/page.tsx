@@ -891,7 +891,7 @@ const Dashboard = () => {
             {/* Jobb oldali szekció */}
             <div className="flex flex-col items-center max-w-sm bg-gray-800 p-6 rounded-lg shadow-md">
               <h2 className="text-xl font-semibold text-gray-300">
-                Kövesd nyomon a bevitt kalóriákat!
+                Kövesd nyomon az elégetett kalóriákat!
               </h2>
               <div className="flex justify-center mt-4">
                 <div style={{ width: 250, height: 250 }}>
@@ -918,7 +918,7 @@ const Dashboard = () => {
                   value={inputCalories2}
                   onChange={(e) => setInputCalories2(e.target.value)}
                   className="w-full max-w-xs px-4 py-2 border-2 border-gray-300 rounded-md text-black"
-                  placeholder="Írd be a bevitt kalóriát"
+                  placeholder="Írd be az elégetett kalóriát"
                 />
                 <button
                   onClick={addCalories2}
