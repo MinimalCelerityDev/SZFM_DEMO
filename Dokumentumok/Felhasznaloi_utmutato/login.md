@@ -35,6 +35,7 @@ Funkciók és gombok részletes dokumentációja
 	•	Stílus:
 	•	Placeholder: "Add meg a jelszavad".
 	•	Egyéb stílusok megegyeznek az e-mail mezővel.
+
 Bejelentkezés gomb
 	•	Funkció:
 	•	Az űrlap elküldésére és a bejelentkezési folyamat elindítására szolgál.
@@ -43,6 +44,7 @@ Bejelentkezés gomb
 	•	Szín: alapértelmezetten szürke, hover állapotban fehér.
 	•	Szöveg: "Belépés".
 	•	Stílus: lekerekített sarkok, közepesen vastag betűk.
+
 Hibaüzenetek és visszajelzések
 	•	Sikeres bejelentkezés esetén:
 	•	Üzenet: "Ügyes vagy! Sikeresen bejelentkeztél. Gratulálok!"
@@ -72,6 +74,6 @@ Bejelentkezési folyamat működése
 	•	A "Belépés" gombra kattintva:
 	•	Az adatok JSON formátumban elküldésre kerülnek a /api/login végpontra.
 	•	A backend ellenőrzi az adatokat, és sikeres hitelesítés esetén JWT tokent generál.
-	•	A token és a felhasználói adatok helyben kerülnek tárolásra (localStorage), és a felhasználó átirányításra kerül a /dashboard oldalra.
+	•	A token és a felhasználói adatok helyben kerülnek tárolásra (backend), és a felhasználó átirányításra kerül a /dashboard oldalra.
 	•	Sikertelen bejelentkezés esetén hibaüzenet jelenik meg.
 

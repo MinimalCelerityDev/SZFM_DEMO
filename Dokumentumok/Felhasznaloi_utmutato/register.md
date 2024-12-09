@@ -50,6 +50,7 @@ Az űrlap több mezőt tartalmaz a felhasználó adatainak megadására.
 	•	Stílus:
 	•	Placeholder: "Jelszó mégegyszer".
 	•	Szegély és stílus hasonló az előző mezőkhöz.
+
 Regisztráció gomb
 	•	Funkció:
 	•	Az űrlap beküldésére és a regisztrációs folyamat elindítására szolgál.
@@ -58,6 +59,7 @@ Regisztráció gomb
 	•	Szín: alapértelmezetten szürke, hover állapotban fekete.
 	•	Szöveg: "Regisztráció".
 	•	Stílus: lekerekített sarkok, közepesen vastag betűk.
+    
 Hibaüzenetek és visszajelzések
 	•	Helytelen jelszók párosítása esetén:
 	•	Üzenet: "A jelszavak nem egyeznek! Próbáld újra!".

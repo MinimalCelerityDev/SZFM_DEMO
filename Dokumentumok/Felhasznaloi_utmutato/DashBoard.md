@@ -23,9 +23,9 @@ Navigációs cél: A felhasználó a sportok oldalára kerülhet.
 Gomb neve: ÁRAK
 Funkció: Kattintásra az ArakPage szekcióra görget.
 Al-menü:
-A csomag
-B csomag
-C csomag
+Ingyenes csomag
+Pro csomag
+Premium
 
 Navigációs cél: A felhasználó az árak oldalára kerülhet.
 Kontakt:
