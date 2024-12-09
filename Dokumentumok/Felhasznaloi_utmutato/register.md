@@ -1,60 +1,93 @@
-Gombok és Navigációs Funkciók
-Étrendek:
-Gomb neve: ÉTRENDEK
-Funkció: Kattintásra az ÉtrendekPage szekcióra görget, amely tartalmazza az étrendeket.
-Al-menü: Három különböző étrend típusra vezető linkek:
-Étrendek 1
-Étrendek 2
-Étrendek 3
-Navigációs cél: A felhasználó az étrendek oldalára kerülhet.
-Sportok:
-Gomb neve: SPORTOK
-Funkció: Kattintásra a SportokPage szekcióra görget, amely sportokkal kapcsolatos információkat tartalmaz.
-Al-menü: Három sport típusra vezető linkek:
-Edzőterem
-Futás
-Mozgás
-Navigációs cél: A felhasználó a sportok oldalára kerülhet.
-Árak:
-Gomb neve: ÁRAK
-Funkció: Kattintásra az ArakPage szekcióra görget, ahol különböző csomagokat és azok árait találja.
-Al-menü: Három ár csomag típusra vezető linkek:
-A csomag
-B csomag
-C csomag
-Navigációs cél: A felhasználó az árak oldalára kerülhet.
-Kontakt:
-Gomb neve: KONTAKT
-Funkció: Kattintásra a ContactPage szekcióra görget, ahol jogi nyilatkozatokat és adatvédelmi információkat talál.
-Al-menü: Három jogi dokumentumra vezető linkek:
-Jogi nyilatkozat
-Süti politika
-Adatvédelem
-Navigációs cél: A felhasználó a kontakt és jogi információkat tartalmazó oldalra kerülhet.
-Kijelentkezés gomb:
-Gomb neve: Kijelentkezés
-Funkció: Kijelentkezés a rendszerből. Törli a felhasználót a localStorage-ból, és átirányítja a felhasználót a bejelentkező oldalra.
-Profil és Személyes Adatok
-Profil adatok:
-A felhasználó adatai (pl. teljes név, email) megjelenítése egy részletes kibontható szekcióban.
-Személyes adatok:
-A felhasználó személyes adatai (pl. kedvenc étel, ital, sport, alvási órák, hobbi, súly, magasság) jelennek meg.
-A felhasználó az adatok módosítását is elvégezheti egy szerkesztési módban, ahol minden adatot újra megadhat, majd elmentheti azokat.
-Az adatok módosításához a felhasználó egy "Módosítás" gombra kattinthat, amely lehetővé teszi a formák szerkesztését.
-Felhasználói Állapot és Adatkezelés
-Felhasználói adatok betöltése:
-A felhasználó adatai betöltődnek a localStorage-ból, amennyiben a felhasználó be van jelentkezve. Ha nem található felhasználó, a komponens "Loading..." üzenetet jelenít meg, amíg az adatok betöltődnek.
-Felhasználói adat mentése:
-A módosított felhasználói adatokat egy API hívással menti a rendszer. Ha a mentés sikeres, a felhasználó adatai frissülnek és a szerkesztési mód kikapcsolódik.
-Interakciók és Állapotkezelés
-Menu Toggles:
-A menüpontok lebegő al-menüi az egérrel történő rámutatásra nyílnak meg. Ezek dinamikusan jelennek meg és tűnnek el, amikor az egér elhagyja a gombokat.
-Globális kattintáskezelés:
-Ha a felhasználó a menüvel kívül kattint, akkor az al-menük automatikusan bezárulnak.
-Strukturális Elemei
-Navigációs menü:
-A menü az oldal tetején található, és reszponzív módon átrendeződik mobil nézetre.
-Felhasználói üdvözlés:
-A felhasználó üdvözlése a neve megjelenítésével történik a fejlécen, egy színes háttérrel.
-Adatkezelés szekciók:
-A profil adatok és a személyes adatok szerkesztése a fő tartalom részeként jelenik meg, kinyitható details elemekkel.
+Fő elemek az oldalon
+1. Bal oldali szekció
+	•	Háttérkép:
+	•	Csak nagyobb képernyőkön (pl. laptop, asztali monitor) látható.
+	•	Jellemzők:
+	•	Háttérméret: a kép teljesen kitölti a rendelkezésre álló területet.
+	•	Pozíció: középre igazított.
+	•	Funkció:
+	•	Dekoratív elemként szolgál.
+
+2. Jobb oldali szekció
+Ez tartalmazza a regisztrációs űrlapot és az összes felhasználói interakciós lehetőséget.
+
+Funkciók és gombok részletes leírása
+1. Vissza gomb (bal felső sarok)
+	•	Megjelenés:
+	•	SVG ikon (balra mutató nyíl).
+	•	Szín: alapértelmezetten szürke, hover állapotban fekete.
+	•	Méret: 24x24px.
+	•	Funkció:
+	•	A gomb visszairányítja a felhasználót a bejelentkezési oldalra (/login).
+	•	Működés:
+	•	A router.push('/login') függvény használatával történik az átirányítás.
+
+2. Regisztrációs űrlap
+Az űrlap több mezőt tartalmaz a felhasználó adatainak megadására.
+Űrlapmezők
+	•	Vezetéknév mező:
+	•	Funkció: A felhasználó vezetéknevének megadására szolgál.
+	•	Stílus:
+	•	Placeholder: "Vezetéknév".
+	•	Szegély: szürke, aktív állapotban piros.
+	•	Keresztnév mező:
+	•	Funkció: A felhasználó keresztnevének megadására szolgál.
+	•	Stílus:
+	•	Placeholder: "Keresztnév".
+	•	Szegély: hasonló a vezetéknév mezőhöz.
+	•	Email mező:
+	•	Funkció: A felhasználó e-mail címének megadására szolgál.
+	•	Stílus:
+	•	Placeholder: "Email".
+	•	Szegély és stílus hasonló az előző mezőkhöz.
+	•	Jelszó mező:
+	•	Funkció: A felhasználó jelszavának megadására szolgál.
+	•	Stílus:
+	•	Placeholder: "Jelszó".
+	•	Szegély és stílus hasonló az előző mezőkhöz.
+	•	Jelszó megerősítése mező:
+	•	Funkció: A megadott jelszó ellenőrzésére szolgál.
+	•	Stílus:
+	•	Placeholder: "Jelszó mégegyszer".
+	•	Szegély és stílus hasonló az előző mezőkhöz.
+Regisztráció gomb
+	•	Funkció:
+	•	Az űrlap beküldésére és a regisztrációs folyamat elindítására szolgál.
+	•	Az API /api/register végpontját hívja meg.
+	•	Megjelenés:
+	•	Szín: alapértelmezetten szürke, hover állapotban fekete.
+	•	Szöveg: "Regisztráció".
+	•	Stílus: lekerekített sarkok, közepesen vastag betűk.
+Hibaüzenetek és visszajelzések
+	•	Helytelen jelszók párosítása esetén:
+	•	Üzenet: "A jelszavak nem egyeznek! Próbáld újra!".
+	•	Piros hátterű hibaüzenet jelenik meg az űrlap tetején.
+	•	Sikertelen regisztráció esetén:
+	•	Az API által visszaadott hibaüzenet jelenik meg (pl. "Valami félrement").
+	•	Sikeres regisztráció esetén:
+	•	A felhasználót automatikusan átirányítja a bejelentkezési oldalra.
+
+3. Belépés hivatkozás
+	•	Elhelyezkedés: Az űrlap alatt, középre igazítva.
+	•	Funkció:
+	•	Átirányítja a felhasználót a bejelentkezési oldalra (/login).
+	•	Megjelenés:
+	•	Szöveg: "Már van fiókod? Belépés".
+	•	Stílus:
+	•	Szín: piros, hover állapotban aláhúzott.
+
+Regisztrációs folyamat működése
+	•	A felhasználó kitölti a szükséges mezőket.
+	•	A "Regisztráció" gombra kattint:
+	•	A mezők tartalma JSON formátumban elküldésre kerül az API /api/register végpontjára.
+	•	Az API válaszától függően:
+	•	Sikeres regisztráció: A felhasználót átirányítja a /login oldalra.
+	•	Hiba esetén: A felhasználó egy hibaüzenetet lát.
+
+Felület reszponzivitása
+	•	Nagy képernyőkön:
+	•	A bal oldalon háttérkép, a jobb oldalon az űrlap található.
+	•	Kisebb képernyőkön:
+	•	A bal oldali háttérkép nem látható.
+	•	Az űrlap kitölti a teljes képernyőt.
+
