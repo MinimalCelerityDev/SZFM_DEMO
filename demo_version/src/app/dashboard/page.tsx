@@ -10,9 +10,22 @@ import FooterPage from "../footer/page";
 import { jsPDF } from "jspdf";
 import { title } from "process";
 import { content } from "html2canvas/dist/types/css/property-descriptors/content";
+import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
+import "react-circular-progressbar/dist/styles.css"; // CSS importálása
+import foodsData from '../etelek/etel.json';
 
 const Dashboard = () => {
   let timeout: NodeJS.Timeout | null = null;
+
+  const [totalCalories, setTotalCalories] = useState(0); // Aktuális napi kalóriák
+  const [inputCalories, setInputCalories] = useState(""); // Beírt kalória érték
+  const maxCalories = 3000; // Maximális napi kalória limit
+  const [foodInput, setFoodInput] = useState("");
+  const [suggestions, setSuggestions] = useState([]);
+
+  const [totalCalories2, setTotalCalories2] = useState(0); // Aktuális égetett kalória
+  const [inputCalories2, setInputCalories2] = useState(""); // Beírt égetett kalória érték
+  const maxCalories2 = 3000; // Maximális napi kalória limit
 
   const [showEtrendek, setShowEtrendek] = useState(false);
   const [showArak, setShowArak] = useState(false);
@@ -59,8 +72,78 @@ const Dashboard = () => {
     }, 100); // Várunk, hogy az elem betöltődjön
   };
 
+  // Kalória hozzáadása a napi bevitelhez
+  const addCalories = async () => {
+    const newCalories = parseInt(inputCalories, 10);
+    if (!isNaN(newCalories)) {
+      const updatedCalories = totalCalories + newCalories;
 
-  const [user, setUser] = useState<{ userId: string; firstName: string; lastName: string; email: string } | null>(null);
+      setTotalCalories(updatedCalories); // Növeli a kalóriát
+      setInputCalories(""); // Törli a bemeneti mezőt
+
+      // Frissítés az adatbázisban
+      try {
+        if (user && user.userId) {
+          await fetch("/api/user-data-final", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              userId: user.userId,
+              data: { ...form, bevitt: updatedCalories.toString() },
+            }),
+          });
+        }
+      } catch (error) {
+        console.error("Hiba az adatok frissítésekor", error);
+      }
+    } else {
+      alert("Kérlek adj meg egy érvényes számot a kalóriákhoz!");
+    }
+  };
+
+  const addCalories2 = async () => {
+    const newCalories2 = parseInt(inputCalories2, 10);
+    if (!isNaN(newCalories2)) {
+      const updatedCalories2 = totalCalories2 + newCalories2;
+
+      setTotalCalories2(updatedCalories2); // Növeli a kalóriát
+      setInputCalories2(""); // Törli a bemeneti mezőt
+
+      // Frissítés az adatbázisban
+      try {
+        if (user && user.userId) {
+          await fetch("/api/user-data-final", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              userId: user.userId,
+              data: { ...form, egetett: updatedCalories2.toString() },
+            }),
+          });
+        }
+      } catch (error) {
+        console.error("Hiba az adatok frissítésekor", error);
+      }
+    } else {
+      alert("Kérlek adj meg egy érvényes számot a kalóriákhoz!");
+    }
+  };
+
+
+  // Számolás és progress bar szélessége
+  const progress = (totalCalories / maxCalories) * 100;
+  const progress2 = (totalCalories2 / maxCalories2) * 100;
+
+  const [user, setUser] = useState<{
+    userId: string;
+    firstName: string;
+    lastName: string;
+    email: string;
+  } | null>(null);
   const [userData, setUserData] = useState<any | null>(null);
   const [form, setForm] = useState({
     favoriteFood: "",
@@ -72,8 +155,8 @@ const Dashboard = () => {
     height: "",
     age_person: "",
     sex: "",
-    egetett: "",
     bevitt: "",
+    egetett: "",
   });
   const [isEditing, setIsEditing] = useState(false);
   const [showMenu, setShowMenu] = useState({
@@ -95,6 +178,26 @@ const Dashboard = () => {
       fetchUserData(parsedUser.userId);
     }
   }, []);
+
+  useEffect(() => {
+    if (foodInput) {
+      const filteredFoods = foodsData.foods.filter(food =>
+        food.name.toLowerCase().startsWith(foodInput.toLowerCase())
+      ).map(food => food.name);
+      setSuggestions(filteredFoods);
+    } else {
+      setSuggestions([]);
+    }
+  }, [foodInput]);
+
+  const handleSelectFood = (foodName) => {
+    const food = foodsData.foods.find(f => f.name === foodName);
+    if (food) {
+      setInputCalories(food.calories.toString());
+      setFoodInput(foodName);
+      setSuggestions([]); // Clear suggestions after selection
+    }
+  };
 
   const fetchUserData = async (userId: string) => {
     try {
@@ -124,10 +227,11 @@ const Dashboard = () => {
         height: data.height || "",
         age_person: data.age_person || "",
         sex: data.sex || "",
-        egetett: data.egetett || "",
         bevitt: data.bevitt || "",
+        egetett: data.egetett || "",
       });
-      setTotalCalories(Number(data.progress) || 0);
+      setTotalCalories(Number(data.bevitt) || 0);
+      setTotalCalories2(Number(data.egetett) || 0);
     } catch (error) {
       console.error(
         "Hiba került a lecsóba amikor be akartunk tölteni adatokat",
@@ -194,6 +298,7 @@ const Dashboard = () => {
     }
   };
 
+
   const handleLogout = () => {
     // Törli a felhasználót a localStorage-ból és átirányít a bejelentkező oldalra
     localStorage.removeItem("user");
@@ -225,8 +330,8 @@ const Dashboard = () => {
 
     // Halvány piros háttér
     doc.setFillColor(255, 200, 200); // RGB szín: halvány piros
-    doc.rect(0, 0, pageWidth, pageHeight, 'F'); // Az egész oldal kitöltése színnel
-  
+    doc.rect(0, 0, pageWidth, pageHeight, "F"); // Az egész oldal kitöltése színnel
+
     // Másik betűtípus beállítása (pl. Times New Roman)
     doc.setFont("times", "normal"); // Választhatunk más betűtípust is, mint például `times` vagy `courier`
 
@@ -338,8 +443,8 @@ const Dashboard = () => {
       return "Étrend B: Fejlesztett fehérjebevitel, magas rosttartalmú ételekkel.";
     } else if (weight > 80 && height > 170) {
       return "Étrend C: Magas fehérjetartalmú, támogatja az izomépítést.";
-    } else if ( weight > 110 && height > 190) {
-      return "Étrend D: Nagyon magas fehérjetartalom, támogatja az egészséges életmódot."
+    } else if (weight > 110 && height > 190) {
+      return "Étrend D: Nagyon magas fehérjetartalom, támogatja az egészséges életmódot.";
     }
     return "Étrend D: Kiegyensúlyozott, megfelel a napi szükségleteknek.";
   }
@@ -354,154 +459,199 @@ const Dashboard = () => {
           backgroundPosition: "center",
         }}
       >
-      <header className="w-full flex justify-between items-center px-6 pt-12 py-4 fixed top-0 z-50 bg-opacity-80 text-white">
-  <div className="text-3xl font-bold uppercase tracking-wide text-red-800">
-    FFLIFE
-  </div>
+        <header className="w-full flex justify-between items-center px-6 pt-12 py-4 fixed top-0 z-50 bg-opacity-80 text-white">
+          <div className="text-3xl font-bold uppercase tracking-wide text-red-800">
+            FFLIFE
+          </div>
 
-  <ul id="menu-container" className="flex gap-8 text-xl font-semibold hidden lg:flex">
-    {/* Étrendek menü */}
-    <li
-      className="relative group cursor-pointer font-bold text-white hover:text-red-800 transition duration-300"
-      onMouseEnter={() => setShowMenu({ ...showMenu, features: true })}
-      onMouseLeave={() => setShowMenu({ ...showMenu, features: false })}
-      onClick={scrollToEtrendekPage}
-    >
-      ÉTRENDEK
-      <div
-        className={`absolute left-0 top-full mt-2 w-40 bg-gray-900 text-white p-4 rounded shadow-xl transition-all ease-in-out duration-500 opacity-0 invisible group-hover:opacity-100 group-hover:visible ${showMenu.features ? "opacity-100 visible" : ""}`}
-      >
-        <ul>
-          <li>
-            <a href="/features-1" className="block hover:text-indigo-400 transition">
-              Étrendek 1
-            </a>
-          </li>
-          <li>
-            <a href="/features-2" className="block hover:text-indigo-400 transition">
-              Étrendek 2
-            </a>
-          </li>
-          <li>
-            <a href="/features-3" className="block hover:text-indigo-400 transition">
-              Étrendek 3
-            </a>
-          </li>
-        </ul>
-      </div>
-    </li>
+          <ul
+            id="menu-container"
+            className="flex gap-8 text-xl font-semibold hidden lg:flex"
+          >
+            {/* Étrendek menü */}
+            <li
+              className="relative group cursor-pointer font-bold text-white hover:text-red-800 transition duration-300"
+              onMouseEnter={() => setShowMenu({ ...showMenu, features: true })}
+              onMouseLeave={() => setShowMenu({ ...showMenu, features: false })}
+              onClick={scrollToEtrendekPage}
+            >
+              ÉTRENDEK
+              <div
+                className={`absolute left-0 top-full mt-2 w-40 bg-gray-900 text-white p-4 rounded shadow-xl transition-all ease-in-out duration-500 opacity-0 invisible group-hover:opacity-100 group-hover:visible ${showMenu.features ? "opacity-100 visible" : ""
+                  }`}
+              >
+                <ul>
+                  <li>
+                    <a
+                      href="/features-1"
+                      className="block hover:text-indigo-400 transition"
+                    >
+                      Étrendek 1
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/features-2"
+                      className="block hover:text-indigo-400 transition"
+                    >
+                      Étrendek 2
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/features-3"
+                      className="block hover:text-indigo-400 transition"
+                    >
+                      Étrendek 3
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
 
-    {/* Sportok menü */}
-    <li
-      className="relative group cursor-pointer font-bold text-white hover:text-red-800 transition duration-300"
-      onMouseEnter={() => setShowMenu({ ...showMenu, resources: true })}
-      onMouseLeave={() => setShowMenu({ ...showMenu, resources: false })}
-      onClick={scrollToSportokPage}
-    >
-      SPORTOK
-      <div
-        className={`absolute left-0 top-full mt-2 w-48 bg-gray-900 text-white p-3 rounded shadow-xl transition-all ease-in-out duration-500 opacity-0 invisible group-hover:opacity-100 group-hover:visible ${showMenu.resources ? "opacity-100 visible" : ""}`}
-      >
-        <ul>
-          <li>
-            <a href="/resources-1" className="block hover:text-indigo-400 transition">
-              Edzőterem
-            </a>
-          </li>
-          <li>
-            <a href="/resources-2" className="block hover:text-indigo-400 transition">
-              Futás
-            </a>
-          </li>
-          <li>
-            <a href="/resources-3" className="block hover:text-indigo-400 transition">
-              Mozgás
-            </a>
-          </li>
-        </ul>
-      </div>
-    </li>
+            {/* Sportok menü */}
+            <li
+              className="relative group cursor-pointer font-bold text-white hover:text-red-800 transition duration-300"
+              onMouseEnter={() => setShowMenu({ ...showMenu, resources: true })}
+              onMouseLeave={() =>
+                setShowMenu({ ...showMenu, resources: false })
+              }
+              onClick={scrollToSportokPage}
+            >
+              SPORTOK
+              <div
+                className={`absolute left-0 top-full mt-2 w-48 bg-gray-900 text-white p-3 rounded shadow-xl transition-all ease-in-out duration-500 opacity-0 invisible group-hover:opacity-100 group-hover:visible ${showMenu.resources ? "opacity-100 visible" : ""
+                  }`}
+              >
+                <ul>
+                  <li>
+                    <a
+                      href="/resources-1"
+                      className="block hover:text-indigo-400 transition"
+                    >
+                      Edzőterem
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/resources-2"
+                      className="block hover:text-indigo-400 transition"
+                    >
+                      Futás
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/resources-3"
+                      className="block hover:text-indigo-400 transition"
+                    >
+                      Mozgás
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
 
-    {/* Árak menü */}
-    <li
-      className="relative group cursor-pointer font-bold text-white hover:text-red-800 transition duration-300"
-      onMouseEnter={() => setShowMenu({ ...showMenu, pricing: true })}
-      onMouseLeave={() => setShowMenu({ ...showMenu, pricing: false })}
-      onClick={scrollToArakPage}
-    >
-      ÁRAK
-      <div
-        className={`absolute left-0 top-full mt-2 w-48 bg-gray-900 text-white p-3 rounded shadow-xl transition-all ease-in-out duration-500 opacity-0 invisible group-hover:opacity-100 group-hover:visible ${showMenu.pricing ? "opacity-100 visible" : ""}`}
-      >
-        <ul>
-          <li>
-            <a href="/pricing-1" className="block hover:text-indigo-400 transition">
-              A csomag
-            </a>
-          </li>
-          <li>
-            <a href="/pricing-2" className="block hover:text-indigo-400 transition">
-              B csomag
-            </a>
-          </li>
-          <li>
-            <a href="/pricing-3" className="block hover:text-indigo-400 transition">
-              C csomag
-            </a>
-          </li>
-        </ul>
-      </div>
-    </li>
+            {/* Árak menü */}
+            <li
+              className="relative group cursor-pointer font-bold text-white hover:text-red-800 transition duration-300"
+              onMouseEnter={() => setShowMenu({ ...showMenu, pricing: true })}
+              onMouseLeave={() => setShowMenu({ ...showMenu, pricing: false })}
+              onClick={scrollToArakPage}
+            >
+              ÁRAK
+              <div
+                className={`absolute left-0 top-full mt-2 w-48 bg-gray-900 text-white p-3 rounded shadow-xl transition-all ease-in-out duration-500 opacity-0 invisible group-hover:opacity-100 group-hover:visible ${showMenu.pricing ? "opacity-100 visible" : ""
+                  }`}
+              >
+                <ul>
+                  <li>
+                    <a
+                      href="/pricing-1"
+                      className="block hover:text-indigo-400 transition"
+                    >
+                      A csomag
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/pricing-2"
+                      className="block hover:text-indigo-400 transition"
+                    >
+                      B csomag
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/pricing-3"
+                      className="block hover:text-indigo-400 transition"
+                    >
+                      C csomag
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
 
-    {/* Kontakt menü */}
-    <li
-      className="relative group cursor-pointer font-bold text-white hover:text-red-800 transition duration-300"
-      onMouseEnter={() => setShowMenu({ ...showMenu, contact: true })}
-      onMouseLeave={() => setShowMenu({ ...showMenu, contact: false })}
-      onClick={scrollToContactPage}
-    >
-      KONTAKT
-      <div
-        className={`absolute left-0 top-full mt-2 w-48 bg-gray-900 text-white p-3 rounded shadow-xl transition-all ease-in-out duration-500 opacity-0 invisible group-hover:opacity-100 group-hover:visible ${showMenu.contact ? "opacity-100 visible" : ""}`}
-      >
-        <ul>
-          <li>
-            <a href="/jogi-nyilatkozat" className="block hover:text-indigo-400 transition">
-              Jogi nyilatkozat
-            </a>
-          </li>
-          <li>
-            <a href="/suti-politika" className="block hover:text-indigo-400 transition">
-              Süti politika
-            </a>
-          </li>
-          <li>
-            <a href="/adatvedelem" className="block hover:text-indigo-400 transition">
-              Adatvédelem
-            </a>
-          </li>
-        </ul>
-      </div>
-    </li>
-  </ul>
+            {/* Kontakt menü */}
+            <li
+              className="relative group cursor-pointer font-bold text-white hover:text-red-800 transition duration-300"
+              onMouseEnter={() => setShowMenu({ ...showMenu, contact: true })}
+              onMouseLeave={() => setShowMenu({ ...showMenu, contact: false })}
+              onClick={scrollToContactPage}
+            >
+              KONTAKT
+              <div
+                className={`absolute left-0 top-full mt-2 w-48 bg-gray-900 text-white p-3 rounded shadow-xl transition-all ease-in-out duration-500 opacity-0 invisible group-hover:opacity-100 group-hover:visible ${showMenu.contact ? "opacity-100 visible" : ""
+                  }`}
+              >
+                <ul>
+                  <li>
+                    <a
+                      href="/jogi-nyilatkozat"
+                      className="block hover:text-indigo-400 transition"
+                    >
+                      Jogi nyilatkozat
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/suti-politika"
+                      className="block hover:text-indigo-400 transition"
+                    >
+                      Süti politika
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/adatvedelem"
+                      className="block hover:text-indigo-400 transition"
+                    >
+                      Adatvédelem
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
 
-  {/* Üdvözlés rész */}
-  <div className="flex flex-col items-start space-y-2">
-    <div
-      className="bg-gradient-to-r from-brown-900 via-indigo-200 to-red-800 px-6 py-3 rounded-full font-extrabold shadow-lg flex items-center space-x-2 cursor-pointer"
-    >
-      <span>👋</span>
-      <span>Welcome, {user.firstName} {user.lastName}!</span>
-    </div>
-    {/* Kijelentkezés gomb */}
-    <button
-      className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition"
-      onClick={handleLogout}
-    >
-      Kijelentkezés
-    </button>
-  </div>
-</header>
+          {/* Üdvözlés rész */}
+          <div className="flex flex-col items-start space-y-2">
+            <div className="bg-gradient-to-r from-brown-900 via-indigo-200 to-red-800 px-6 py-3 rounded-full font-extrabold shadow-lg flex items-center space-x-2 cursor-pointer">
+              <span>👋</span>
+              <span>
+                Welcome, {user.firstName} {user.lastName}!
+              </span>
+            </div>
+            {/* Kijelentkezés gomb */}
+            <button
+              className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition"
+              onClick={handleLogout}
+            >
+              Kijelentkezés
+            </button>
+          </div>
+        </header>
         <main className="flex flex-col items-center justify-center pt-24 px-6">
           <details
             className="text-left bg-gray-800 bg-opacity-80 rounded-lg mt-16 p-6 w-full max-w-4xl shadow-xl"
@@ -683,110 +833,103 @@ const Dashboard = () => {
               </form>
             )}
           </details>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+          {/* Kalória Számláló és Progress Bar */}
+          <div className="flex flex-wrap justify-center lg:justify-between items-center gap-8 p-4">
+            {/* Bal oldali szekció */}
+            <div className="flex flex-wrap justify-center lg:justify-between items-center gap-8 p-4">
+              <div className="flex flex-col items-center max-w-sm bg-gray-800 p-6 rounded-lg shadow-md">
+                <h2 className="text-xl font-semibold text-gray-300">
+                  Kövesd nyomon a bevitt kalóriákat!
+                </h2>
+                <div className="flex justify-center mt-4">
+                  <div style={{ width: 250, height: 250 }}>
+                    <CircularProgressbar
+                      value={progress}
+                      text={`${totalCalories} kcal`}
+                      styles={buildStyles({
+                        pathColor: progress > 100 ? "red" : "green",
+                        textColor: "black",
+                        trailColor: "#d6d6d6",
+                        strokeWidth: 10,
+                        textSize: "20px",
+                      })}
+                    />
+                  </div>
+                </div>
+                <p className="mt-2 text-white text-lg">
+                  {totalCalories} / {maxCalories} kalória
+                </p>
+                <input
+                  name="bevitt"
+                  type="text"
+                  value={foodInput}
+                  onChange={(e) => setFoodInput(e.target.value)}
+                  className="w-full max-w-xs px-4 py-2 border-2 border-gray-300 rounded-md text-black"
+                  placeholder="Írd be az étel nevét"
+                />
+                <ul className="list-none mt-2 bg-white border border-gray-300 rounded-md text-black w-full">
+                  {suggestions.map((suggestion, index) => (
+                    <li
+                      key={index}
+                      className="px-4 py-2 hover:bg-gray-200 cursor-pointer"
+                      onClick={() => handleSelectFood(suggestion)}
+                    >
+                      {suggestion}
+                    </li>
+                  ))}
+                </ul>
+                <button
+                  onClick={addCalories}
+                  className="mt-4 px-6 py-2 bg-blue-500 text-white rounded-md shadow-lg hover:bg-blue-600 transition"
+                >
+                  Kalória hozzáadása
+                </button>
+              </div>
+            </div>
+
+
+            {/* Jobb oldali szekció */}
+            <div className="flex flex-col items-center max-w-sm bg-gray-800 p-6 rounded-lg shadow-md">
+              <h2 className="text-xl font-semibold text-gray-300">
+                Kövesd nyomon a bevitt kalóriákat!
+              </h2>
+              <div className="flex justify-center mt-4">
+                <div style={{ width: 250, height: 250 }}>
+                  <CircularProgressbar
+                    value={progress2}
+                    text={`${totalCalories2} kcal`}
+                    styles={buildStyles({
+                      pathColor: progress2 > 100 ? "red" : "green",
+                      textColor: "black",
+                      trailColor: "#d6d6d6",
+                      strokeWidth: 10,
+                      textSize: "20px",
+                    })}
+                  />
+                </div>
+              </div>
+              <p className="mt-2 text-white text-lg">
+                {totalCalories2} / {maxCalories2} kalória
+              </p>
+              <div className="flex flex-col items-center max-w-sm bg-gray-800 p-6 rounded-lg shadow-md">
+                <input
+                  name="egetett"
+                  type="number"
+                  value={inputCalories2}
+                  onChange={(e) => setInputCalories2(e.target.value)}
+                  className="w-full max-w-xs px-4 py-2 border-2 border-gray-300 rounded-md text-black"
+                  placeholder="Írd be a bevitt kalóriát"
+                />
+                <button
+                  onClick={addCalories2}
+                  className="mt-4 px-6 py-2 bg-blue-500 text-white rounded-md shadow-lg hover:bg-blue-600 transition"
+                >
+                  Kalória hozzáadása
+                </button>
+              </div>
+            </div>
+
+          </div>
         </main>
       </div>
 
