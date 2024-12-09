@@ -1,0 +1,96 @@
+Funkcionális Specifikáció
+1. Navigációs Funkciók
+Menüpontok és főbb funkcióik:
+Étrendek:
+Gomb neve: ÉTRENDEK.
+
+Funkció: Kattintásra az ÉtrendekPage szekcióra görget.
+Al-menü: Három link:
+Ingyens
+Prof
+Premium
+
+Navigációs cél: Az étrendek oldalának elérése.
+Sportok:
+Gomb neve: SPORTOK.
+Funkció: Kattintásra a SportokPage szekcióra görget.
+Al-menü: Három link:
+Edzőterem.
+Edzőterem.
+Hobbi.
+
+Navigációs cél: A sportok oldalának elérése.
+Árak:
+Gomb neve: ÁRAK.
+Funkció: Kattintásra az ArakPage szekcióra görget.
+Al-menü: Három link:
+Ingyenes csomag
+Pro csomag
+Premium csomag
+
+Navigációs cél: Az árak oldalának elérése.
+Kontakt:
+Gomb neve: KONTAKT.
+Funkció: Kattintásra a ContactPage szekcióra görget.
+Al-menü: Három link:
+Jogi nyilatkozat.
+Süti politika.
+Adatvédelem.
+
+Navigációs cél: A kontakt és jogi információkat tartalmazó oldal elérése.
+Kijelentkezés:
+Gomb neve: Kijelentkezés.
+Funkció: Kijelentkezteti a felhasználót, törli az adatait a localStorage-ból, és átirányítja a bejelentkező oldalra.
+
+2. Felhasználói Profil és Adatkezelés
+Profil Adatok Megjelenítése:
+A felhasználó teljes neve és email címe jelenik meg kibontható formában.
+Személyes Adatok:
+Kedvenc étel, ital, sport, alvási szokások, hobbi, súly, és magasság jelenik meg.
+A felhasználó módosíthatja az adatokat "Módosítás" gombbal, amely szerkeszthető formákat nyit meg.
+Adatok mentése API hívással történik.
+
+3. Interakciók és Állapotkezelés
+Menü Dinamikus Kezelése:
+Al-menük megnyílnak, ha az egér a gomb fölé kerül.
+Al-menük automatikusan bezáródnak, ha a felhasználó máshová kattint.
+Felhasználói Adatok Betöltése:
+Az adatok betöltődnek a localStorage-ból, ha a felhasználó bejelentkezett.
+Ha nincs adat, "Loading..." üzenet jelenik meg.
+Adatok Frissítése:
+A módosított adatok sikeres mentése után az új adatok frissülnek, és a szerkesztési mód automatikusan bezárul.
+
+4. Oldal Struktúrája
+Navigációs Menü:
+Reszponzív, mobilbarát elrendezés.
+Felhasználói Üdvözlés:
+A fejlécben jelenik meg a felhasználó neve színes háttérrel.
+Adatkezelés Szekciók:
+A profil és személyes adatok kinyitható details elemekben jelennek meg.
+
+5. Technikai követelmények
+5.1 Backend
+Technológia: Node.js, Express, Cors, HashCors
+Adatbázis: MongoDB , (mongoose)
+API kommunikáció: REST 
+5.2 Frontend
+Technológia: Next.js (ebben minden), TypeScript
+Stílus: Tailwind CSS és sima Css
+
+
+6. Fejlesztési ütemterv
+Elemzési szakasz (5 nap )
+Részletes követelmények véglegesítése.
+Tervezési szakasz (1 hét)
+Adatbázis és architektúra tervezése.
+Fejlesztési szakasz (1 - 1,5 hét)
+Backend, frontend fejlesztés és integráció.
+Tesztelési szakasz (5  nap )
+Funkcionális és teljesítménytesztek.
+Bevezetési szakasz (5 nap )
+Éles üzembe helyezés.
+
+7. Elfogadási kritériumok
+Az applikáció minden funkciója hibamentesen működik.
+Az oldal reszponzív és felhasználóbarát.
+Az adatvédelem megfelel a szabályozásoknak.

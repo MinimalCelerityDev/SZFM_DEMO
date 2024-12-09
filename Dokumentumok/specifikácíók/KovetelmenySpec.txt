@@ -1,0 +1,35 @@
+Követelmény Specifikáció
+1. Funkcionális Követelmények
+Navigációs Menüpontok:
+A gombok kattintásra görgessenek a megfelelő oldal-szekcióra.
+Az al-menük kattinthatóak legyenek, és pontos navigációt biztosítsanak.
+Kijelentkezés:
+Törölje a localStorage tartalmát, és irányítsa át a felhasználót a bejelentkező oldalra.
+Profil és Adatok:
+A felhasználói adatok megjelenítése és szerkesztési lehetősége biztosított legyen.
+API-hívás valósuljon meg az adatok mentéséhez.
+
+2. Nem-funkcionális Követelmények
+Felhasználói Élmény:
+Reszponzív kialakítás mobil eszközökre.
+Gyors betöltési idő (max. 2 másodperc).
+Adatvédelem:
+A felhasználói adatokat biztonságosan kezelje (pl. HTTPS használata API hívások során).
+Interakciók:
+Menü dinamikus megnyílása és bezárása gyors és zökkenőmentes legyen.
+Hibamentes működés különböző böngészőkön.
+
+3. Technikai Követelmények
+Front-end:
+HTML, CSS, JavaScript (React vagy Angular ajánlott).
+Back-end:
+RESTful API az adatkezeléshez.
+Adatbázis:
+Felhasználói adatok tárolása SQL vagy NoSQL adatbázisban.
+
+4. Üzemeltetési Követelmények
+Rendszer Elérhetőség:
+99.9%-os uptime biztosítása.
+Karbantartás:
+Frissítések havi rendszerességgel.
+Ez a specifikáció részletesen leírja a funkciók működését és a megvalósítás technikai követelményeit.
