@@ -2,22 +2,19 @@
 
 import React from "react";
 
-// EtrendekPage komponens
 const EtrendekPage = () => {
-  // A PDF fájlok elérési útjai
   const pdfFiles = {
     freePlan: '/pdfs/Ingyenes_Csomag.pdf',
     proPlan: '/pdfs/Pro_Csomag.pdf',
     premiumPlan: '/pdfs/Premium_Csomag.pdf'
   };
 
-  // PDF letöltés kezelése
   const downloadPDF = (plan) => {
     const fileUrl = pdfFiles[plan];
     if (fileUrl) {
       const link = document.createElement('a');
       link.href = fileUrl;
-      link.download = fileUrl.split('/').pop(); // A fájl neve az URL-ből
+      link.download = fileUrl.split('/').pop(); 
       link.click();
     } else {
       console.error("PDF file not found for plan:", plan);
@@ -60,7 +57,6 @@ const EtrendekPage = () => {
             </button>
           </div>
 
-          {/* Pro Csomag */}
           <div
             id="proPlan"
             className="bg-black bg-opacity-70 p-8 rounded-lg shadow-xl text-center hover:scale-105 transform transition duration-300 ease-in-out"
@@ -85,7 +81,6 @@ const EtrendekPage = () => {
             </button>
           </div>
 
-          {/* Premium Csomag */}
           <div
             id="premiumPlan"
             className="bg-black bg-opacity-70 p-8 rounded-lg shadow-xl text-center hover:scale-105 transform transition duration-300 ease-in-out"
@@ -112,7 +107,6 @@ const EtrendekPage = () => {
           </div>
         </div>
 
-        {/* Csomag Összehasonlító Táblázat */}
         <div className="mt-12 bg-black bg-opacity-70 p-8 rounded-lg shadow-xl">
           <h3 className="text-3xl font-bold text-white text-center mb-4">
             Csomag Összehasonlítás

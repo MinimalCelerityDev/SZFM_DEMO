@@ -1,6 +1,5 @@
-// src/app/components/PricingPage.tsx
 import React from 'react';
-import bk from "../Edzestervek/edzesterv_kep.jpg";  // A hátteret tartalmazó kép helyes elérési útja
+import bk from "../Edzestervek/edzesterv_kep.jpg"; 
 import Link from "next/link";
 
 const PricingPage = () => {

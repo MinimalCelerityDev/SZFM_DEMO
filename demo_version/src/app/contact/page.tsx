@@ -10,36 +10,36 @@ const ContactPage = () => {
     setTimeout(() => {
       const etrendPage = document.getElementById("EtrendPage");
       if (etrendPage) {
-        etrendPage.scrollIntoView({ behavior: "smooth" }); // Simán görgess oda
+        etrendPage.scrollIntoView({ behavior: "smooth" }); 
       }
-    }, 100); // Várunk, hogy az elem betöltődjön
+    }, 100);
   };
 
   const scrollToArakPage = () => {
     setTimeout(() => {
       const arPage = document.getElementById("ArakPage");
       if (arPage) {
-        arPage.scrollIntoView({ behavior: "smooth" }); // Simán görgess oda
+        arPage.scrollIntoView({ behavior: "smooth" }); 
       }
-    }, 100); // Várunk, hogy az elem betöltődjön
+    }, 100); 
   };
 
   const scrollToSportokPage = () => {
     setTimeout(() => {
       const sportPage = document.getElementById("SportokPage");
       if (sportPage) {
-        sportPage.scrollIntoView({ behavior: "smooth" }); // Simán görgess oda
+        sportPage.scrollIntoView({ behavior: "smooth" }); 
       }
-    }, 100); // Várunk, hogy az elem betöltődjön
+    }, 100); 
   };
 
   const scrollToContactPage = () => {
     setTimeout(() => {
       const contactPage = document.getElementById("ContactPage");
       if (contactPage) {
-        contactPage.scrollIntoView({ behavior: "smooth" }); // Simán görgess oda
+        contactPage.scrollIntoView({ behavior: "smooth" }); 
       }
-    }, 100); // Várunk, hogy az elem betöltődjön
+    }, 100);
   };
 
   const [formData, setFormData] = useState({
@@ -67,13 +67,13 @@ const ContactPage = () => {
       message: formData.message,
     };
 
-    // Send email via EmailJS
+    
     emailjs
       .send(
-        "fflifedeik", // Your service ID from EmailJS
-        "fflifedeiktemp", // Your template ID from EmailJS
+        "fflifedeik", 
+        "fflifedeiktemp",
         templateParams,
-        "YNkX0HVTu2nBd5Kiz" // Your user ID from EmailJS
+        "YNkX0HVTu2nBd5Kiz" 
       )
       .then(
         (response) => {
@@ -99,19 +99,16 @@ const ContactPage = () => {
       }}
     >
       <div className="container relative z-10 mx-auto px-6 py-8 bg-opacity-80 bg-white rounded-lg shadow-xl max-w-lg">
-        {/* Cím */}
+        
         <h1 className="text-3xl font-extrabold text-center text-red-900 tracking-tight mb-6 uppercase">
           Kapcsolat
         </h1>
         
-        {/* Leírás */}
         <p className="text-center text-lg text-red-900 mb-6 px-4">
           Kérdésekkel, javaslatokkal bátran kereshetsz minket!
         </p>
 
-        {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-4">
-          {/* Név */}
           <div className="relative">
             <input
               type="text"
@@ -125,7 +122,6 @@ const ContactPage = () => {
             />
           </div>
 
-          {/* Email */}
           <div className="relative">
             <input
               type="email"
@@ -139,7 +135,6 @@ const ContactPage = () => {
             />
           </div>
 
-          {/* Üzenet */}
           <div className="relative">
             <textarea
               id="message"
@@ -153,7 +148,6 @@ const ContactPage = () => {
             />
           </div>
 
-          {/* Küldés gomb */}
           <div className="flex justify-center">
             <button
               type="submit"
